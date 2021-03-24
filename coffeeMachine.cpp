@@ -1,9 +1,9 @@
 #include <iostream>
 #include <cmath>
 
-#define CAPPUCCINO_PRICE 2
-#define ESPRESSO_PRICE 3
-#define LATTE_PRICE 3.5
+#define PRICE_CAPPUCCINO 3
+#define PRICE_ESPRESSO 2
+#define PRICE_LATTE 3.5
 #define FIFTY_BELARUS_COPECK 0.5
 #define ONE_BYN 1
 #define TWO_BYN 2
@@ -48,13 +48,13 @@ int main()
             cash = getCurrentCashBalance(cash);
             break;
         case 2:
-            cash = buyCoffee(cash, CAPPUCCINO_PRICE);
+            cash = buyCoffee(cash, PRICE_CAPPUCCINO);
             break;
         case 3:
-            cash = buyCoffee(cash, ESPRESSO_PRICE);
+            cash = buyCoffee(cash, PRICE_ESPRESSO);
             break;
         case 4:
-            cash = buyCoffee(cash, LATTE_PRICE);
+            cash = buyCoffee(cash, PRICE_LATTE);
             break;
         case 5:
             cash = putCashInCoffeeMachine(cash, FIFTY_BELARUS_COPECK);
@@ -193,13 +193,13 @@ void showSelectCoffeeInMainMenu()
          << "Select coffee"
          << " *********" << endl;
     cout << "* "
-         << "2. CAPPUCCINO  " << CAPPUCCINO_PRICE << " Byn"
+         << "2. CAPPUCCINO  " << PRICE_CAPPUCCINO << " Byn"
          << "       *" << endl;
     cout << "* "
-         << "3. ESPRESSO    " << ESPRESSO_PRICE << " Byn"
+         << "3. ESPRESSO    " << PRICE_ESPRESSO << " Byn"
          << "       *" << endl;
     cout << "* "
-         << "4. LATTE       " << LATTE_PRICE << " Byn"
+         << "4. LATTE       " << PRICE_LATTE << " Byn"
          << "     *" << endl;
 }
 
