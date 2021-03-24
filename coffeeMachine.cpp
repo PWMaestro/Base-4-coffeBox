@@ -2,7 +2,7 @@
 #include <cmath>
 
 #define PRICE_CAPPUCCINO 3
-#define PRICE_ESPRESSO 2
+#define PRICE_ESPRESSO 2.5
 #define PRICE_LATTE 3.5
 #define FIFTY_BELARUS_COPECK 0.5
 #define ONE_BYN 1
