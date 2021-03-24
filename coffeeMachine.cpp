@@ -79,7 +79,6 @@ int main()
             break;
         case 12:
             cash = putCashInCoffeeMachine(cash, ONE_HUNDRED_BYN);
-            ;
             break;
         case 13:
             cash = putCashInCoffeeMachine(cash, TWO_HUNDRED_BYN);
