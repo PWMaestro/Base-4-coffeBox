@@ -115,7 +115,7 @@ int main()
             break;
 
         default:
-            cout << "You select wrong number" << endl;
+            showWrongInputMessage();
             break;
         }
     }
