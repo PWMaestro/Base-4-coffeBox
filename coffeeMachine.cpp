@@ -1,6 +1,11 @@
 #include <iostream>
 #include <cmath>
 
+#define PIN 4689 // PIN just for test
+#define PIN_INPUT_ATTEMPTS 3
+
+#define MAX_NUMBER_OF_GLASSES 700
+
 #define PRICE_CAPPUCCINO 3
 #define PRICE_ESPRESSO 2
 #define PRICE_LATTE 3.5
@@ -18,6 +23,9 @@
 using namespace std;
 
 void showMainMenu();
+void showServiceMenu();
+
+int callServiseMenu(int &currentGlassesNumber, double &allowedCash);
 
 void showCheckCashBalanceInMainMenu();
 void showDepositMoneyInMainMenu();
@@ -30,9 +38,12 @@ double buyCoffee(double cash, double price);
 double getCurrentCashBalance(double cash);
 double putCashInCoffeeMachine(double cash, double byn);
 
+bool isAccessAllowed();
+
 int main()
 {
     int choiceNumber = 0;
+    int glasses = 7;
     double cash = 0.0;
 
     while (true)
@@ -87,7 +98,15 @@ int main()
             cash = putCashInCoffeeMachine(cash, FIVE_HUNDRED_BYN);
             break;
         case 15:
+            if ( isAccessAllowed() ) {
+                cout << "Access allowed." << endl;
+                callServiseMenu(glasses, cash);
+            } else {
+                cout << "The coffeeBox is shutting down currently..." << endl;
+                return 1;
+            }
             break;
+
         default:
             cout << "You select wrong number" << endl;
             break;
@@ -240,4 +259,73 @@ double putCashInCoffeeMachine(double cash, double byn)
          << endl;
 
     return cash + byn;
+}
+
+bool isAccessAllowed()
+{
+    int pin = 0;
+
+    for (int i = 1; i <= PIN_INPUT_ATTEMPTS; i++) {
+        cout << "Please, enter a PIN number:";
+        cin >> pin;
+        if ( pin == PIN ) {
+            return true;
+        } else {
+            cout << "Wrong PIN number!" << endl;
+            cout << "You have " << PIN_INPUT_ATTEMPTS - i << " attempts left." << endl;
+        }
+    }
+    
+    return false;
+}
+
+int callServiseMenu(int &currentGlassesNumber, double &allowedCash)
+{
+    while (true)
+    {
+        int choiceNumber = -1;
+
+        showServiceMenu();
+        
+        cout << "Select option or press 0 to exit: ";
+        cin >> choiceNumber;
+        
+        switch (choiceNumber)
+        {
+        case 0:
+            return 0;
+        case 1:
+            cout << "show how much cash we have";
+            // showProseed(cash);
+            break;
+        case 2:
+            cout << "serviceman take off our cash";
+            // takeOutProceeds(cash);
+            break;
+        case 3:
+            cout << "show how much glasses we have";
+            // showGlasses(glasses);
+            break;
+        case 4:
+            cout << "fill inner container with glasses";
+            // fillCoffeMachineWithGlasses(glasses);
+            break;
+        
+        default:
+            cout << "OMG! Wrong input here!";
+            // showWrongInputMessage();
+            break;
+        }
+    }
+}
+
+void showServiceMenu()
+{
+    cout << endl << "Service menu" << endl;
+    cout << "--------------------" << endl;
+    cout << "1. Show avaliable revenue" << endl;
+    cout << "2. To issue proceeds" << endl;
+    cout << "3. Show remaining glasses" << endl;
+    cout << "4. Take glasses" << endl;
+    cout << "0. Exit" << endl;
 }
