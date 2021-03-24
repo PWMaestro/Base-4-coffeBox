@@ -363,6 +363,18 @@ void takeOutProceeds(double &avaliableCash)
 
 void fillCoffeMachineWithGlasses(int &glassesLeft)
 {
-    glassesLeft = MAX_NUMBER_OF_GLASSES;
-    cout << "You successfully filled coffeeBox with glasses." << endl;
+    int newGlasses = 0,
+        totalGlasses = glassesLeft;
+
+    cout << "How many glasses you want insert? ";
+    cin >> newGlasses;
+
+    totalGlasses += newGlasses;
+
+    if (totalGlasses > MAX_NUMBER_OF_GLASSES) {
+        cout << "Too much glasses! Try to insert less." << endl;
+    } else {
+        glassesLeft = totalGlasses;
+        cout << "You successfully filled coffeeBox with " << newGlasses << " glasses." << endl;
+    }
 }
