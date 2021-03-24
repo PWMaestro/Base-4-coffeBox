@@ -42,64 +42,56 @@ int main()
         cin >> choiceNumber;
         cout << endl;
 
-        if (choiceNumber == 1)
+        switch (choiceNumber)
         {
+        case 1:
             cash = getCurrentCashBalance(cash);
-        }
-        else if (choiceNumber == 2)
-        {
+            break;
+        case 2:
             cash = buyCoffee(cash, CAPPUCCINO_PRICE);
-        }
-        else if (choiceNumber == 3)
-        {
+            break;
+        case 3:
             cash = buyCoffee(cash, ESPRESSO_PRICE);
-        }
-        else if (choiceNumber == 4)
-        {
+            break;
+        case 4:
             cash = buyCoffee(cash, LATTE_PRICE);
-        }
-        else if (choiceNumber == 5)
-        {
+            break;
+        case 5:
             cash = putCashInCoffeeMachine(cash, FIFTY_BELARUS_COPECK);
-        }
-        else if (choiceNumber == 6)
-        {
+            break;
+        case 6:
             cash = putCashInCoffeeMachine(cash, ONE_BYN);
-        }
-        else if (choiceNumber == 7)
-        {
+            break;
+        case 7:
             cash = putCashInCoffeeMachine(cash, TWO_BYN);
-        }
-        else if (choiceNumber == 8)
-        {
+            break;
+        case 8:
             cash = putCashInCoffeeMachine(cash, FIVE_BYN);
-        }
-        else if (choiceNumber == 9)
-        {
+            break;
+        case 9:
             cash = putCashInCoffeeMachine(cash, TEN_BYN);
-        }
-        else if (choiceNumber == 10)
-        {
+            break;
+        case 10:
             cash = putCashInCoffeeMachine(cash, TWENTY_BYN);
-        }
-        else if (choiceNumber == 11)
-        {
+            break;
+        case 11:
             cash = putCashInCoffeeMachine(cash, FIFTY_BYN);
-        }
-        else if (choiceNumber == 12)
-        {
+            break;
+        case 12:
             cash = putCashInCoffeeMachine(cash, ONE_HUNDRED_BYN);
-        }
-        else if (choiceNumber == 13)
-        {
+            ;
+            break;
+        case 13:
             cash = putCashInCoffeeMachine(cash, TWO_HUNDRED_BYN);
-        }
-        else if (choiceNumber == 14)
-        {
+            break;
+        case 14:
             cash = putCashInCoffeeMachine(cash, FIVE_HUNDRED_BYN);
-        }
-        else if (choiceNumber == 15)
-        {
+            break;
+        case 15:
+            break;
+        default:
+            cout << "You select wrong number" << endl;
+            break;
         }
     }
 
