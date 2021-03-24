@@ -24,6 +24,7 @@ using namespace std;
 
 void showMainMenu();
 void showServiceMenu();
+void showGlasses(const int &glassesCount);
 
 int callServiseMenu(int &currentGlassesNumber, double &allowedCash);
 
@@ -33,6 +34,12 @@ void showMaintenanceServiceInMainMenu();
 void showMarkaCoffeeMachineInMainMenu();
 void showNamingInMainMenu();
 void showSelectCoffeeInMainMenu();
+void showProseeds(double &cash);
+
+void fillCoffeMachineWithGlasses(int &glassesLeft);
+void takeOutProceeds(double &avaliableCash);
+
+void showWrongInputMessage();
 
 double buyCoffee(double cash, double price);
 double getCurrentCashBalance(double cash);
@@ -279,6 +286,15 @@ bool isAccessAllowed()
     return false;
 }
 
+void showWrongInputMessage()
+{
+    cout << "Wrong input! Try again..." << endl;
+}
+
+////////////////------------------------////////////////
+//////////////// SERVICE MENU FUNCTIONS ////////////////
+////////////////------------------------////////////////
+
 int callServiseMenu(int &currentGlassesNumber, double &allowedCash)
 {
     while (true)
@@ -295,25 +311,20 @@ int callServiseMenu(int &currentGlassesNumber, double &allowedCash)
         case 0:
             return 0;
         case 1:
-            cout << "show how much cash we have";
-            // showProseed(cash);
+            showProseeds(allowedCash);
             break;
         case 2:
-            cout << "serviceman take off our cash";
-            // takeOutProceeds(cash);
+            takeOutProceeds(allowedCash);
             break;
         case 3:
-            cout << "show how much glasses we have";
-            // showGlasses(glasses);
+            showGlasses(currentGlassesNumber);
             break;
         case 4:
-            cout << "fill inner container with glasses";
-            // fillCoffeMachineWithGlasses(glasses);
+            fillCoffeMachineWithGlasses(currentGlassesNumber);
             break;
         
         default:
-            cout << "OMG! Wrong input here!";
-            // showWrongInputMessage();
+            showWrongInputMessage();
             break;
         }
     }
@@ -328,4 +339,30 @@ void showServiceMenu()
     cout << "3. Show remaining glasses" << endl;
     cout << "4. Take glasses" << endl;
     cout << "0. Exit" << endl;
+}
+
+void showProseeds(double &cash)
+{
+    cout << "Avaliable proseeds is " << cash << " BYN." << endl;
+}
+
+void showGlasses(const int &glassesCount)
+{
+    cout << glassesCount << " glasses left." << endl;
+}
+
+void takeOutProceeds(double &avaliableCash)
+{
+    cout << "Opening the lock..." << endl;
+    cout << "Opened." << endl;
+
+    avaliableCash = 0;
+    
+    cout << "You successfully take out all proseeds." << endl;
+}
+
+void fillCoffeMachineWithGlasses(int &glassesLeft)
+{
+    glassesLeft = MAX_NUMBER_OF_GLASSES;
+    cout << "You successfully filled coffeeBox with glasses." << endl;
 }
