@@ -24,7 +24,7 @@
 using namespace std;
 
 void showMainMenu(double &userBalance);
-void showBynMoneyMenu();
+void showCashMoneyMenu();
 void showServiceMenu();
 
 void showGlasses(const int &glassesCount);
