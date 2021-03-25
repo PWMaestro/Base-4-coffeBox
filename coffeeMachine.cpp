@@ -142,6 +142,12 @@ int main()
     return 0;
 }
 
+/******************************************************************************
+ * 
+ * MAIN MENU FUNCTIONS
+ * 
+******************************************************************************/
+
 void showMainMenu()
 {
     showMarkaCoffeeMachineInMainMenu();
@@ -294,56 +300,11 @@ double putCashInCoffeeMachine(double balance, double byn)
     return balance + byn;
 }
 
-int removeGlasses(double userBalance, double price, int glasses)
-{
-    if (glasses == 0)
-    {
-        cout << "Sorry we don't have glasses" << endl;
-        cout << "Please, call our manager" << endl;
-        glasses = 0;
-        return glasses;
-    }
-    else
-    {
-        if (userBalance < price)
-        {
-            return glasses;
-        }
-
-        return glasses - 1;
-    }
-}
-
-bool isAccessAllowed()
-{
-    int pin = 0;
-
-    for (int i = 1; i <= MAX_PIN_INPUT_ATTEMPTS; i++)
-    {
-        cout << "Please, enter a PIN number:";
-        cin >> pin;
-        if (pin == PIN)
-        {
-            return true;
-        }
-        else
-        {
-            cout << "Wrong PIN number!" << endl;
-            cout << "You have " << MAX_PIN_INPUT_ATTEMPTS - i << " attempts left." << endl;
-        }
-    }
-
-    return false;
-}
-
-void showWrongInputMessage()
-{
-    cout << "Wrong input! Try again..." << endl;
-}
-
-////////////////------------------------////////////////
-//////////////// SERVICE MENU FUNCTIONS ////////////////
-////////////////------------------------////////////////
+/******************************************************************************
+ * 
+ * SERVICE MENU FUNCTIONS
+ * 
+******************************************************************************/
 
 int callServiseMenu(int &currentGlassesNumber, double &allowedCash)
 {
@@ -412,6 +373,12 @@ void takeOutProceeds(double &avaliableCash)
     cout << "You successfully take out all proseeds." << endl;
 }
 
+/******************************************************************************
+ * 
+ * GENERAL FUNCTIONS
+ * 
+******************************************************************************/
+
 void fillCoffeeMachineWithGlasses(int &glassesLeft)
 {
     int newGlasses = 0,
@@ -430,5 +397,52 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft)
     {
         glassesLeft = totalGlasses;
         cout << "You successfully filled coffeeBox with " << newGlasses << " glasses." << endl;
+    }
+}
+
+void showWrongInputMessage()
+{
+    cout << "Wrong input! Try again..." << endl;
+}
+
+bool isAccessAllowed()
+{
+    int pin = 0;
+
+    for (int i = 1; i <= MAX_PIN_INPUT_ATTEMPTS; i++)
+    {
+        cout << "Please, enter a PIN number:";
+        cin >> pin;
+        if (pin == PIN)
+        {
+            return true;
+        }
+        else
+        {
+            cout << "Wrong PIN number!" << endl;
+            cout << "You have " << MAX_PIN_INPUT_ATTEMPTS - i << " attempts left." << endl;
+        }
+    }
+
+    return false;
+}
+
+int removeGlasses(double userBalance, double price, int glasses)
+{
+    if (glasses == 0)
+    {
+        cout << "Sorry we don't have glasses" << endl;
+        cout << "Please, call our manager" << endl;
+        glasses = 0;
+        return glasses;
+    }
+    else
+    {
+        if (userBalance < price)
+        {
+            return glasses;
+        }
+
+        return glasses - 1;
     }
 }
