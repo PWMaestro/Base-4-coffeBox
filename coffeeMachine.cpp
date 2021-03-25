@@ -31,6 +31,7 @@ void showGlasses(const int &glassesCount);
 
 int callServiseMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance);
 int callCashMoneyMenu(double &userBalance, double &cashBalance);
+int addSugar();
 
 void showUserBalance(double &userBalance);
 void showDepositMoneyInMainMenu();
@@ -286,6 +287,7 @@ void giveCoffeeToUser(double &userBalance, double price, int &glasses)
     {
         if (isMoneyEnough(userBalance, price))
         {
+            addSugar();
             removeGlass(glasses);
             cout << "Congratulation!!! You buy coffee" << endl
                  << endl;
@@ -468,5 +470,33 @@ bool isMoneyEnough(double &currentBalance, double &itemPrice)
     else
     {
         return false;
+    }
+}
+
+int addSugar()
+{
+    int sugar = 0;
+
+    cout << "Should I add any sugar?" << endl;
+
+    while (true)
+    {
+        cout << "Press 1 if yes," << endl;
+        cout << "press 0 if no." << endl;
+        cin >> sugar;
+
+        switch (sugar)
+        {
+        case 0:
+            cout << "No" << endl;
+            return 0;
+        case 1:
+            cout << "Yes" << endl;
+            return 0;
+        
+        default:
+            showWrongInputMessage();
+            break;
+        }
     }
 }
