@@ -30,7 +30,7 @@ void showServiceMenu();
 void showGlasses(const int &glassesCount);
 
 int callMainMenu(int &glasses, double &userBalance, double &cashBalance);
-int callServiseMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance);
+int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance);
 int callCashDepositMenu(double &userBalance, double &cashBalance);
 int addSugar();
 
@@ -95,7 +95,7 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
             if (isAccessAllowed())
             {
                 cout << "Access allowed." << endl;
-                callServiseMenu(glasses, cashBalance, userBalance);
+                callServiceMenu(glasses, cashBalance, userBalance);
             }
             else
             {
@@ -326,7 +326,7 @@ void getMoneyFromUser(double &userBalance, double &cashBalance, double byn)
  * 
 ******************************************************************************/
 
-int callServiseMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance)
+int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance)
 {
     while (true)
     {
