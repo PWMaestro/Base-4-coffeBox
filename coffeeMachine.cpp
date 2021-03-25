@@ -2,23 +2,24 @@
 #include <cmath>
 
 #define PIN 4689 // PIN just for test
-#define PIN_INPUT_ATTEMPTS 3
+#define MAX_PIN_INPUT_ATTEMPTS 3
 
 #define MAX_NUMBER_OF_GLASSES 700
 
 #define PRICE_CAPPUCCINO 3
 #define PRICE_ESPRESSO 2.5
 #define PRICE_LATTE 3.5
-#define FIFTY_BELARUS_COPECK 0.5
-#define ONE_BYN 1
-#define TWO_BYN 2
-#define FIVE_BYN 5
-#define TEN_BYN 10
-#define TWENTY_BYN 20
-#define FIFTY_BYN 50
-#define ONE_HUNDRED_BYN 100
-#define TWO_HUNDRED_BYN 200
-#define FIVE_HUNDRED_BYN 500
+
+#define BYN_BILL_05 0.5
+#define BYN_BILL_1 1
+#define BYN_BILL_2 2
+#define BYN_BILL_5 5
+#define BYN_BILL_10 10
+#define BYN_BILL_20 20
+#define BYN_BILL_50 50
+#define BYN_BILL_100 100
+#define BYN_BILL_200 200
+#define BYN_BILL_500 500
 
 using namespace std;
 
@@ -80,34 +81,34 @@ int main()
             glasses = removeGlasses(cash, PRICE_LATTE, glasses);
             break;
         case 5:
-            cash = putCashInCoffeeMachine(cash, FIFTY_BELARUS_COPECK);
+            cash = putCashInCoffeeMachine(cash, BYN_BILL_05);
             break;
         case 6:
-            cash = putCashInCoffeeMachine(cash, ONE_BYN);
+            cash = putCashInCoffeeMachine(cash, BYN_BILL_1);
             break;
         case 7:
-            cash = putCashInCoffeeMachine(cash, TWO_BYN);
+            cash = putCashInCoffeeMachine(cash, BYN_BILL_2);
             break;
         case 8:
-            cash = putCashInCoffeeMachine(cash, FIVE_BYN);
+            cash = putCashInCoffeeMachine(cash, BYN_BILL_5);
             break;
         case 9:
-            cash = putCashInCoffeeMachine(cash, TEN_BYN);
+            cash = putCashInCoffeeMachine(cash, BYN_BILL_10);
             break;
         case 10:
-            cash = putCashInCoffeeMachine(cash, TWENTY_BYN);
+            cash = putCashInCoffeeMachine(cash, BYN_BILL_20);
             break;
         case 11:
-            cash = putCashInCoffeeMachine(cash, FIFTY_BYN);
+            cash = putCashInCoffeeMachine(cash, BYN_BILL_50);
             break;
         case 12:
-            cash = putCashInCoffeeMachine(cash, ONE_HUNDRED_BYN);
+            cash = putCashInCoffeeMachine(cash, BYN_BILL_100);
             break;
         case 13:
-            cash = putCashInCoffeeMachine(cash, TWO_HUNDRED_BYN);
+            cash = putCashInCoffeeMachine(cash, BYN_BILL_200);
             break;
         case 14:
-            cash = putCashInCoffeeMachine(cash, FIVE_HUNDRED_BYN);
+            cash = putCashInCoffeeMachine(cash, BYN_BILL_500);
             break;
         case 15:
             if (isAccessAllowed())
@@ -156,29 +157,29 @@ void showDepositMoneyInMainMenu()
          << "Deposit money"
          << " *********" << endl;
     cout << "* "
-         << "5.  " << FIFTY_BELARUS_COPECK << " Byn"
+         << "5.  " << BYN_BILL_05 << " Byn"
          << "   "
-         << "6. " << ONE_BYN << " Byn "
+         << "6. " << BYN_BILL_1 << " Byn "
          << "    *" << endl;
     cout << "* "
-         << "7.  " << TWO_BYN << " Byn    "
+         << "7.  " << BYN_BILL_2 << " Byn    "
          << " "
-         << "8. " << FIVE_BYN << " Byn "
+         << "8. " << BYN_BILL_5 << " Byn "
          << "    *" << endl;
     cout << "* "
-         << "9.  " << TEN_BYN << " Byn   "
+         << "9.  " << BYN_BILL_10 << " Byn   "
          << " "
-         << "10. " << TWENTY_BYN << " Byn "
+         << "10. " << BYN_BILL_20 << " Byn "
          << "  *" << endl;
     cout << "* "
-         << "11. " << FIFTY_BYN << " Byn   "
+         << "11. " << BYN_BILL_50 << " Byn   "
          << " "
-         << "12. " << ONE_HUNDRED_BYN << " Byn"
+         << "12. " << BYN_BILL_100 << " Byn"
          << "  *" << endl;
     cout << "* "
-         << "13. " << TWO_HUNDRED_BYN << " Byn  "
+         << "13. " << BYN_BILL_200 << " Byn  "
          << " "
-         << "14. " << FIVE_HUNDRED_BYN << " Byn "
+         << "14. " << BYN_BILL_500 << " Byn "
          << " *" << endl;
 }
 
@@ -307,7 +308,7 @@ bool isAccessAllowed()
 {
     int pin = 0;
 
-    for (int i = 1; i <= PIN_INPUT_ATTEMPTS; i++)
+    for (int i = 1; i <= MAX_PIN_INPUT_ATTEMPTS; i++)
     {
         cout << "Please, enter a PIN number:";
         cin >> pin;
@@ -318,7 +319,7 @@ bool isAccessAllowed()
         else
         {
             cout << "Wrong PIN number!" << endl;
-            cout << "You have " << PIN_INPUT_ATTEMPTS - i << " attempts left." << endl;
+            cout << "You have " << MAX_PIN_INPUT_ATTEMPTS - i << " attempts left." << endl;
         }
     }
 
