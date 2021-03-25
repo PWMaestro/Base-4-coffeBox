@@ -545,8 +545,11 @@ void giveCoffeeToUser(double &userBalance, double price, int &glasses)
         {
             addSugar();
             removeGlass(glasses);
-            cout << "Congratulation!!! You buy coffee" << endl
-                 << endl;
+            cout << "Take your coffee, please!" << endl << endl;
+            cout << "       )          (        " << endl;
+            cout << "      ((          ))       " << endl;
+            cout << " (''''''''')o (''''''''')o " << endl;
+            
             userBalance -= price;
         }
         else
