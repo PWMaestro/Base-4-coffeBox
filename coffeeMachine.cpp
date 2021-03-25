@@ -42,10 +42,10 @@ void takeOutProceeds(double &avaliableCash);
 
 void showWrongInputMessage();
 
-double buyCoffee(double userBalance, double price, int glasses);
+double buyCoffee(double userBalance, double price, int &glasses);
 void getMoneyFromUser(double &userBalance, double &cashBalance, double byn);
 
-int removeGlass(double userBalance, double price, int glasses);
+void removeGlass(int &glasses);
 
 bool isAccessAllowed();
 
@@ -66,15 +66,12 @@ int main()
         {
         case 1:
             userBalance = buyCoffee(userBalance, PRICE_CAPPUCCINO, glasses);
-            glasses = removeGlass(userBalance, PRICE_CAPPUCCINO, glasses);
             break;
         case 2:
             userBalance = buyCoffee(userBalance, PRICE_ESPRESSO, glasses);
-            glasses = removeGlass(userBalance, PRICE_ESPRESSO, glasses);
             break;
         case 3:
             userBalance = buyCoffee(userBalance, PRICE_LATTE, glasses);
-            glasses = removeGlass(userBalance, PRICE_LATTE, glasses);
             break;
         case 4:
             getMoneyFromUser(userBalance, cashBalance, BYN_BILL_05);
@@ -240,7 +237,7 @@ void showSelectCoffeeInMainMenu()
          << "     *" << endl;
 }
 
-double buyCoffee(double userBalance, double price, int glasses)
+double buyCoffee(double userBalance, double price, int &glasses)
 {
     if (glasses != 0)
     {
@@ -254,6 +251,7 @@ double buyCoffee(double userBalance, double price, int glasses)
         }
         else
         {
+            removeGlass(glasses);
             cout << "Congratulation!!! You buy coffee" << endl
                  << endl;
             return userBalance - price;
@@ -403,22 +401,15 @@ bool isAccessAllowed()
     return false;
 }
 
-int removeGlass(double userBalance, double price, int glasses)
+void removeGlass(int &glasses)
 {
     if (glasses == 0)
     {
         cout << "Sorry we don't have glasses" << endl;
         cout << "Please, call our manager" << endl;
-        glasses = 0;
-        return glasses;
     }
     else
     {
-        if (userBalance < price)
-        {
-            return glasses;
-        }
-
-        return glasses - 1;
+        glasses--;
     }
 }
