@@ -48,6 +48,7 @@ void getMoneyFromUser(double &userBalance, double &cashBalance, double byn);
 void removeGlass(int &glasses);
 int checkGlasses(int &avaliableGlasses);
 
+bool isMoneyEnough(double &currentBalance, double &itemPrice);
 bool isAccessAllowed();
 
 int main()
@@ -242,19 +243,19 @@ void giveCoffeeToUser(double &userBalance, double price, int &glasses)
 {
     if (checkGlasses(glasses))
     {
-        if (userBalance < price)
-        {
-            cout << "Sorry, you don't have enough money" << endl;
-            cout << "You need to put cash in coffee" << endl;
-            cout << "machine" << endl
-                 << endl;
-        }
-        else
+        if (isMoneyEnough(userBalance, price))
         {
             removeGlass(glasses);
             cout << "Congratulation!!! You buy coffee" << endl
                  << endl;
             userBalance -= price;
+        }
+        else
+        {
+            cout << "Sorry, you don't have enough money" << endl;
+            cout << "You need to put cash in coffee" << endl;
+            cout << "machine" << endl
+                 << endl;
         }
     }
 }
@@ -414,5 +415,17 @@ int checkGlasses(int &avaliableGlasses)
     else
     {
         return avaliableGlasses;
+    }
+}
+
+bool isMoneyEnough(double &currentBalance, double &itemPrice)
+{
+    if (currentBalance > itemPrice)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
