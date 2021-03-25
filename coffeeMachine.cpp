@@ -35,7 +35,7 @@ void showMaintenanceServiceInMainMenu();
 void showMarkaCoffeeMachineInMainMenu();
 void showNamingInMainMenu();
 void showSelectCoffeeInMainMenu();
-void showProseeds(double &cash);
+void showProceeds(double &cash);
 
 void fillCoffeeMachineWithGlasses(int &glassesLeft);
 void takeOutProceeds(double &avaliableCash);
@@ -323,7 +323,7 @@ int callServiseMenu(int &currentGlassesNumber, double &allowedCash, double &user
             usersCurrentBalance = 0;
             return 0;
         case 1:
-            showProseeds(allowedCash);
+            showProceeds(allowedCash);
             break;
         case 2:
             takeOutProceeds(allowedCash);
@@ -354,9 +354,9 @@ void showServiceMenu()
     cout << "0. Exit" << endl;
 }
 
-void showProseeds(double &cash)
+void showProceeds(double &cash)
 {
-    cout << "Avaliable proseeds is " << cash << " BYN." << endl;
+    cout << "Avaliable proceeds is " << cash << " BYN." << endl;
 }
 
 void showGlasses(const int &glassesCount)
