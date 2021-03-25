@@ -44,7 +44,7 @@ void showWrongInputMessage();
 
 double buyCoffee(double userBalance, double price, int glasses);
 double getCurrentCashBalance(double userBalance);
-double putCashInCoffeeMachine(double userBalance, double byn);
+double putCashInCoffeeMachine(double balance, double byn);
 
 int removeGlasses(double userBalance, double price, int glasses);
 
@@ -54,7 +54,7 @@ int main()
 {
     int choiceNumber = 0;
     int glasses = 7;
-    double userBalance = 0.0;
+    double userBalance = 0.0, cashBalance = 0.0;
 
     while (true)
     {
@@ -81,65 +81,44 @@ int main()
             glasses = removeGlasses(userBalance, PRICE_LATTE, glasses);
             break;
         case 5:
-<<<<<<< HEAD
-            cash = putCashInCoffeeMachine(cash, BYN_BILL_05);
+            userBalance = putCashInCoffeeMachine(userBalance, BYN_BILL_05);
+            cashBalance = putCashInCoffeeMachine(cashBalance, BYN_BILL_05);
             break;
         case 6:
-            cash = putCashInCoffeeMachine(cash, BYN_BILL_1);
+            userBalance = putCashInCoffeeMachine(userBalance, BYN_BILL_1);
+            cashBalance = putCashInCoffeeMachine(cashBalance, BYN_BILL_1);
             break;
         case 7:
-            cash = putCashInCoffeeMachine(cash, BYN_BILL_2);
+            userBalance = putCashInCoffeeMachine(userBalance, BYN_BILL_2);
+            cashBalance = putCashInCoffeeMachine(cashBalance, BYN_BILL_2);
             break;
         case 8:
-            cash = putCashInCoffeeMachine(cash, BYN_BILL_5);
+            userBalance = putCashInCoffeeMachine(userBalance, BYN_BILL_5);
+            cashBalance = putCashInCoffeeMachine(cashBalance, BYN_BILL_5);
             break;
         case 9:
-            cash = putCashInCoffeeMachine(cash, BYN_BILL_10);
+            userBalance = putCashInCoffeeMachine(userBalance, BYN_BILL_10);
+            cashBalance = putCashInCoffeeMachine(cashBalance, BYN_BILL_10);
             break;
         case 10:
-            cash = putCashInCoffeeMachine(cash, BYN_BILL_20);
+            userBalance = putCashInCoffeeMachine(userBalance, BYN_BILL_20);
+            cashBalance = putCashInCoffeeMachine(cashBalance, BYN_BILL_20);
             break;
         case 11:
-            cash = putCashInCoffeeMachine(cash, BYN_BILL_50);
+            userBalance = putCashInCoffeeMachine(userBalance, BYN_BILL_50);
+            cashBalance = putCashInCoffeeMachine(cashBalance, BYN_BILL_50);
             break;
         case 12:
-            cash = putCashInCoffeeMachine(cash, BYN_BILL_100);
+            userBalance = putCashInCoffeeMachine(userBalance, BYN_BILL_100);
+            cashBalance = putCashInCoffeeMachine(cashBalance, BYN_BILL_100);
             break;
         case 13:
-            cash = putCashInCoffeeMachine(cash, BYN_BILL_200);
+            userBalance = putCashInCoffeeMachine(userBalance, BYN_BILL_200);
+            cashBalance = putCashInCoffeeMachine(cashBalance, BYN_BILL_200);
             break;
         case 14:
-            cash = putCashInCoffeeMachine(cash, BYN_BILL_500);
-=======
-            userBalance = putCashInCoffeeMachine(userBalance, FIFTY_BELARUS_COPECK);
-            break;
-        case 6:
-            userBalance = putCashInCoffeeMachine(userBalance, ONE_BYN);
-            break;
-        case 7:
-            userBalance = putCashInCoffeeMachine(userBalance, TWO_BYN);
-            break;
-        case 8:
-            userBalance = putCashInCoffeeMachine(userBalance, FIVE_BYN);
-            break;
-        case 9:
-            userBalance = putCashInCoffeeMachine(userBalance, TEN_BYN);
-            break;
-        case 10:
-            userBalance = putCashInCoffeeMachine(userBalance, TWENTY_BYN);
-            break;
-        case 11:
-            userBalance = putCashInCoffeeMachine(userBalance, FIFTY_BYN);
-            break;
-        case 12:
-            userBalance = putCashInCoffeeMachine(userBalance, ONE_HUNDRED_BYN);
-            break;
-        case 13:
-            userBalance = putCashInCoffeeMachine(userBalance, TWO_HUNDRED_BYN);
-            break;
-        case 14:
-            userBalance = putCashInCoffeeMachine(userBalance, FIVE_HUNDRED_BYN);
->>>>>>> d414af00a93fa18c9db644d510a41dfeb035d760
+            userBalance = putCashInCoffeeMachine(userBalance, BYN_BILL_500);
+            cashBalance = putCashInCoffeeMachine(cashBalance, BYN_BILL_500);
             break;
         case 15:
             if (isAccessAllowed())
@@ -306,13 +285,13 @@ double getCurrentCashBalance(double userBalance)
     return userBalance;
 }
 
-double putCashInCoffeeMachine(double userBalance, double byn)
+double putCashInCoffeeMachine(double balance, double byn)
 {
     cout << "You put in coffee machine " << endl;
     cout << byn << " BYN" << endl
          << endl;
 
-    return userBalance + byn;
+    return balance + byn;
 }
 
 int removeGlasses(double userBalance, double price, int glasses)
