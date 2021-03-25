@@ -37,16 +37,16 @@ void showNamingInMainMenu();
 void showSelectCoffeeInMainMenu();
 void showProseeds(double &cash);
 
-void fillCoffeMachineWithGlasses(int &glassesLeft);
+void fillCoffeeMachineWithGlasses(int &glassesLeft);
 void takeOutProceeds(double &avaliableCash);
 
 void showWrongInputMessage();
 
-double buyCoffee(double cash, double price, int glasses);
-double getCurrentCashBalance(double cash);
-double putCashInCoffeeMachine(double cash, double byn);
+double buyCoffee(double userBalance, double price, int glasses);
+double getCurrentCashBalance(double userBalance);
+double putCashInCoffeeMachine(double userBalance, double byn);
 
-int removeGlasses(double cash, double price, int glasses);
+int removeGlasses(double userBalance, double price, int glasses);
 
 bool isAccessAllowed();
 
@@ -54,7 +54,7 @@ int main()
 {
     int choiceNumber = 0;
     int glasses = 7;
-    double cash = 0.0;
+    double userBalance = 0.0;
 
     while (true)
     {
@@ -66,21 +66,22 @@ int main()
         switch (choiceNumber)
         {
         case 1:
-            cash = getCurrentCashBalance(cash);
+            userBalance = getCurrentCashBalance(userBalance);
             break;
         case 2:
-            cash = buyCoffee(cash, PRICE_CAPPUCCINO, glasses);
-            glasses = removeGlasses(cash, PRICE_CAPPUCCINO, glasses);
+            userBalance = buyCoffee(userBalance, PRICE_CAPPUCCINO, glasses);
+            glasses = removeGlasses(userBalance, PRICE_CAPPUCCINO, glasses);
             break;
         case 3:
-            cash = buyCoffee(cash, PRICE_ESPRESSO, glasses);
-            glasses = removeGlasses(cash, PRICE_ESPRESSO, glasses);
+            userBalance = buyCoffee(userBalance, PRICE_ESPRESSO, glasses);
+            glasses = removeGlasses(userBalance, PRICE_ESPRESSO, glasses);
             break;
         case 4:
-            cash = buyCoffee(cash, PRICE_LATTE, glasses);
-            glasses = removeGlasses(cash, PRICE_LATTE, glasses);
+            userBalance = buyCoffee(userBalance, PRICE_LATTE, glasses);
+            glasses = removeGlasses(userBalance, PRICE_LATTE, glasses);
             break;
         case 5:
+<<<<<<< HEAD
             cash = putCashInCoffeeMachine(cash, BYN_BILL_05);
             break;
         case 6:
@@ -109,12 +110,42 @@ int main()
             break;
         case 14:
             cash = putCashInCoffeeMachine(cash, BYN_BILL_500);
+=======
+            userBalance = putCashInCoffeeMachine(userBalance, FIFTY_BELARUS_COPECK);
+            break;
+        case 6:
+            userBalance = putCashInCoffeeMachine(userBalance, ONE_BYN);
+            break;
+        case 7:
+            userBalance = putCashInCoffeeMachine(userBalance, TWO_BYN);
+            break;
+        case 8:
+            userBalance = putCashInCoffeeMachine(userBalance, FIVE_BYN);
+            break;
+        case 9:
+            userBalance = putCashInCoffeeMachine(userBalance, TEN_BYN);
+            break;
+        case 10:
+            userBalance = putCashInCoffeeMachine(userBalance, TWENTY_BYN);
+            break;
+        case 11:
+            userBalance = putCashInCoffeeMachine(userBalance, FIFTY_BYN);
+            break;
+        case 12:
+            userBalance = putCashInCoffeeMachine(userBalance, ONE_HUNDRED_BYN);
+            break;
+        case 13:
+            userBalance = putCashInCoffeeMachine(userBalance, TWO_HUNDRED_BYN);
+            break;
+        case 14:
+            userBalance = putCashInCoffeeMachine(userBalance, FIVE_HUNDRED_BYN);
+>>>>>>> d414af00a93fa18c9db644d510a41dfeb035d760
             break;
         case 15:
             if (isAccessAllowed())
             {
                 cout << "Access allowed." << endl;
-                callServiseMenu(glasses, cash);
+                callServiseMenu(glasses, userBalance);
             }
             else
             {
@@ -238,53 +269,53 @@ void showSelectCoffeeInMainMenu()
          << "     *" << endl;
 }
 
-double buyCoffee(double cash, double price, int glasses)
+double buyCoffee(double userBalance, double price, int glasses)
 {
     if (glasses != 0)
     {
-        if (cash < price)
+        if (userBalance < price)
         {
             cout << "Sorry, you don't have enough money" << endl;
             cout << "You need to put cash in coffee" << endl;
             cout << "machine" << endl
                  << endl;
-            return cash;
+            return userBalance;
         }
         else
         {
             cout << "Congratulation!!! You buy coffee" << endl
                  << endl;
-            return cash - price;
+            return userBalance - price;
         }
     }
     else
     {
-        return cash;
+        return userBalance;
     }
 }
 
-double getCurrentCashBalance(double cash)
+double getCurrentCashBalance(double userBalance)
 {
-    if (cash == 0)
+    if (userBalance == 0)
     {
         cout << "Please, top up cash balance" << endl;
     }
-    cout << "Cash balance: " << cash << " BYN" << endl
+    cout << "Cash balance: " << userBalance << " BYN" << endl
          << endl;
 
-    return cash;
+    return userBalance;
 }
 
-double putCashInCoffeeMachine(double cash, double byn)
+double putCashInCoffeeMachine(double userBalance, double byn)
 {
     cout << "You put in coffee machine " << endl;
     cout << byn << " BYN" << endl
          << endl;
 
-    return cash + byn;
+    return userBalance + byn;
 }
 
-int removeGlasses(double cash, double price, int glasses)
+int removeGlasses(double userBalance, double price, int glasses)
 {
     if (glasses == 0)
     {
@@ -295,7 +326,7 @@ int removeGlasses(double cash, double price, int glasses)
     }
     else
     {
-        if (cash < price)
+        if (userBalance < price)
         {
             return glasses;
         }
@@ -360,7 +391,7 @@ int callServiseMenu(int &currentGlassesNumber, double &allowedCash)
             showGlasses(currentGlassesNumber);
             break;
         case 4:
-            fillCoffeMachineWithGlasses(currentGlassesNumber);
+            fillCoffeeMachineWithGlasses(currentGlassesNumber);
             break;
 
         default:
@@ -402,7 +433,7 @@ void takeOutProceeds(double &avaliableCash)
     cout << "You successfully take out all proseeds." << endl;
 }
 
-void fillCoffeMachineWithGlasses(int &glassesLeft)
+void fillCoffeeMachineWithGlasses(int &glassesLeft)
 {
     int newGlasses = 0,
         totalGlasses = glassesLeft;
