@@ -36,7 +36,7 @@ void showNamingInMainMenu();
 void showSelectCoffeeInMainMenu();
 void showProseeds(double &cash);
 
-void fillCoffeMachineWithGlasses(int &glassesLeft);
+void fillCoffeeMachineWithGlasses(int &glassesLeft);
 void takeOutProceeds(double &avaliableCash);
 
 void showWrongInputMessage();
@@ -359,7 +359,7 @@ int callServiseMenu(int &currentGlassesNumber, double &allowedCash)
             showGlasses(currentGlassesNumber);
             break;
         case 4:
-            fillCoffeMachineWithGlasses(currentGlassesNumber);
+            fillCoffeeMachineWithGlasses(currentGlassesNumber);
             break;
 
         default:
@@ -401,7 +401,7 @@ void takeOutProceeds(double &avaliableCash)
     cout << "You successfully take out all proseeds." << endl;
 }
 
-void fillCoffeMachineWithGlasses(int &glassesLeft)
+void fillCoffeeMachineWithGlasses(int &glassesLeft)
 {
     int newGlasses = 0,
         totalGlasses = glassesLeft;
