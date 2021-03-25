@@ -41,7 +41,7 @@ void takeOutProceeds(double &avaliableCash);
 
 void showWrongInputMessage();
 
-double buyCoffee(double cash, double price);
+double buyCoffee(double cash, double price, int glasses);
 double getCurrentCashBalance(double cash);
 double putCashInCoffeeMachine(double cash, double byn);
 
@@ -66,13 +66,13 @@ int main()
             cash = getCurrentCashBalance(cash);
             break;
         case 2:
-            cash = buyCoffee(cash, PRICE_CAPPUCCINO);
+            cash = buyCoffee(cash, PRICE_CAPPUCCINO, glasses);
             break;
         case 3:
-            cash = buyCoffee(cash, PRICE_ESPRESSO);
+            cash = buyCoffee(cash, PRICE_ESPRESSO, glasses);
             break;
         case 4:
-            cash = buyCoffee(cash, PRICE_LATTE);
+            cash = buyCoffee(cash, PRICE_LATTE, glasses);
             break;
         case 5:
             cash = putCashInCoffeeMachine(cash, FIFTY_BELARUS_COPECK);
@@ -105,10 +105,13 @@ int main()
             cash = putCashInCoffeeMachine(cash, FIVE_HUNDRED_BYN);
             break;
         case 15:
-            if ( isAccessAllowed() ) {
+            if (isAccessAllowed())
+            {
                 cout << "Access allowed." << endl;
                 callServiseMenu(glasses, cash);
-            } else {
+            }
+            else
+            {
                 cout << "The coffeeBox is shutting down currently..." << endl;
                 return 1;
             }
@@ -229,21 +232,28 @@ void showSelectCoffeeInMainMenu()
          << "     *" << endl;
 }
 
-double buyCoffee(double cash, double price)
+double buyCoffee(double cash, double price, int glasses)
 {
-    if (cash < price)
+    if (glasses != 0)
     {
-        cout << "Sorry, you don't have enough money" << endl;
-        cout << "You need to put cash in coffee" << endl;
-        cout << "machine" << endl
-             << endl;
-        return cash;
+        if (cash < price)
+        {
+            cout << "Sorry, you don't have enough money" << endl;
+            cout << "You need to put cash in coffee" << endl;
+            cout << "machine" << endl
+                 << endl;
+            return cash;
+        }
+        else
+        {
+            cout << "Congratulation!!! You buy coffee" << endl
+                 << endl;
+            return cash - price;
+        }
     }
     else
     {
-        cout << "Congratulation!!! You buy coffee" << endl
-             << endl;
-        return cash - price;
+        return cash;
     }
 }
 
@@ -272,17 +282,21 @@ bool isAccessAllowed()
 {
     int pin = 0;
 
-    for (int i = 1; i <= PIN_INPUT_ATTEMPTS; i++) {
+    for (int i = 1; i <= PIN_INPUT_ATTEMPTS; i++)
+    {
         cout << "Please, enter a PIN number:";
         cin >> pin;
-        if ( pin == PIN ) {
+        if (pin == PIN)
+        {
             return true;
-        } else {
+        }
+        else
+        {
             cout << "Wrong PIN number!" << endl;
             cout << "You have " << PIN_INPUT_ATTEMPTS - i << " attempts left." << endl;
         }
     }
-    
+
     return false;
 }
 
@@ -302,10 +316,10 @@ int callServiseMenu(int &currentGlassesNumber, double &allowedCash)
         int choiceNumber = -1;
 
         showServiceMenu();
-        
+
         cout << "Select option or press 0 to exit: ";
         cin >> choiceNumber;
-        
+
         switch (choiceNumber)
         {
         case 0:
@@ -322,7 +336,7 @@ int callServiseMenu(int &currentGlassesNumber, double &allowedCash)
         case 4:
             fillCoffeMachineWithGlasses(currentGlassesNumber);
             break;
-        
+
         default:
             showWrongInputMessage();
             break;
@@ -332,7 +346,8 @@ int callServiseMenu(int &currentGlassesNumber, double &allowedCash)
 
 void showServiceMenu()
 {
-    cout << endl << "Service menu" << endl;
+    cout << endl
+         << "Service menu" << endl;
     cout << "--------------------" << endl;
     cout << "1. Show avaliable revenue" << endl;
     cout << "2. To issue proceeds" << endl;
@@ -357,7 +372,7 @@ void takeOutProceeds(double &avaliableCash)
     cout << "Opened." << endl;
 
     avaliableCash = 0;
-    
+
     cout << "You successfully take out all proseeds." << endl;
 }
 
@@ -371,9 +386,12 @@ void fillCoffeMachineWithGlasses(int &glassesLeft)
 
     totalGlasses += newGlasses;
 
-    if (totalGlasses > MAX_NUMBER_OF_GLASSES) {
+    if (totalGlasses > MAX_NUMBER_OF_GLASSES)
+    {
         cout << "Too much glasses! Try to insert less." << endl;
-    } else {
+    }
+    else
+    {
         glassesLeft = totalGlasses;
         cout << "You successfully filled coffeeBox with " << newGlasses << " glasses." << endl;
     }
