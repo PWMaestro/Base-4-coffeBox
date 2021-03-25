@@ -30,7 +30,7 @@ void showServiceMenu();
 void showGlasses(const int &glassesCount);
 
 int callServiseMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance);
-double callCashMoneyMenu(double &userBalance, double &cashBalance);
+int callCashMoneyMenu(double &userBalance, double &cashBalance);
 
 void showUserBalance(double &userBalance);
 void showDepositMoneyInMainMenu();
@@ -226,7 +226,7 @@ void showSelectCoffeeInMainMenu()
          << "*****************************" << endl;
 }
 
-double callCashMoneyMenu(double &userBalance, double &cashBalance)
+int callCashMoneyMenu(double &userBalance, double &cashBalance)
 {
     while (true)
     {
@@ -242,7 +242,7 @@ double callCashMoneyMenu(double &userBalance, double &cashBalance)
         switch (choiceMoney)
         {
         case 0:
-            return 1;
+            return 0;
         case 1:
             getMoneyFromUser(userBalance, cashBalance, BYN_BILL_05);
             break;
