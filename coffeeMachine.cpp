@@ -28,6 +28,7 @@ int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &user
 int callCashDepositMenu(double &userBalance, double &cashBalance);
 
 int addSugar();
+int adjustPortionSize();
 int checkGlasses(int &avaliableGlasses);
 
 void showMainMenu(double &userBalance);
@@ -468,7 +469,58 @@ int addSugar()
             return 0;
         case 1:
             cout << "Yes" << endl;
+            adjustPortionSize();
             return 0;
+        
+        default:
+            showWrongInputMessage();
+            break;
+        }
+    }
+}
+
+int adjustPortionSize()
+{
+    int currentPortionSize = 4;
+    int chosenOption = -1;
+
+    while (true)
+    {
+        cout << "Current portion size is " << currentPortionSize << "." << endl;
+        cout << "Press 0 to decrease" << endl;
+        cout << "Press 1 to increase" << endl;
+        cout << "Press 2 to confirm" << endl;
+        
+        cin >> chosenOption;
+
+        switch (chosenOption)
+        {
+        case 0:
+            if (currentPortionSize <= 0)
+            {
+                cout << "Can't decrease sugar portion!" << endl;
+                cout << "You chose zero sugar portion!" << endl;
+            }
+            else
+            {
+                currentPortionSize--;
+            }
+            break;
+        case 1:
+            if (currentPortionSize >= 8)
+            {
+                cout << "Can't increase sugar portion!" << endl;
+                cout << "You chose maximum sugar portion!" << endl;
+            }
+            else
+            {
+                currentPortionSize++;
+            }
+            break;
+        case 2:
+            cout << "Adding " << currentPortionSize << " sugar portion..." << endl;
+            return currentPortionSize;
+            break;
         
         default:
             showWrongInputMessage();
