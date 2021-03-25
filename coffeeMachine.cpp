@@ -45,7 +45,7 @@ void showWrongInputMessage();
 double buyCoffee(double userBalance, double price, int glasses);
 double putMoneyInCoffeeMachine(double balance, double byn);
 
-int removeGlasses(double userBalance, double price, int glasses);
+int removeGlass(double userBalance, double price, int glasses);
 
 bool isAccessAllowed();
 
@@ -66,15 +66,15 @@ int main()
         {
         case 1:
             userBalance = buyCoffee(userBalance, PRICE_CAPPUCCINO, glasses);
-            glasses = removeGlasses(userBalance, PRICE_CAPPUCCINO, glasses);
+            glasses = removeGlass(userBalance, PRICE_CAPPUCCINO, glasses);
             break;
         case 2:
             userBalance = buyCoffee(userBalance, PRICE_ESPRESSO, glasses);
-            glasses = removeGlasses(userBalance, PRICE_ESPRESSO, glasses);
+            glasses = removeGlass(userBalance, PRICE_ESPRESSO, glasses);
             break;
         case 3:
             userBalance = buyCoffee(userBalance, PRICE_LATTE, glasses);
-            glasses = removeGlasses(userBalance, PRICE_LATTE, glasses);
+            glasses = removeGlass(userBalance, PRICE_LATTE, glasses);
             break;
         case 4:
             userBalance = putMoneyInCoffeeMachine(userBalance, BYN_BILL_05);
@@ -412,7 +412,7 @@ bool isAccessAllowed()
     return false;
 }
 
-int removeGlasses(double userBalance, double price, int glasses)
+int removeGlass(double userBalance, double price, int glasses)
 {
     if (glasses == 0)
     {
