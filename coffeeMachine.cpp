@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <string>
 
 #define PIN 4689 // PIN just for test
 #define MAX_PIN_INPUT_ATTEMPTS 3
