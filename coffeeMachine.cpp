@@ -269,8 +269,8 @@ void getMoneyFromUser(double &userBalance, double &cashBalance, double byn)
     cout << byn << " BYN" << endl
          << endl;
 
-    userBalance = userBalance + byn;
-    cashBalance = cashBalance + byn;
+    userBalance += byn;
+    cashBalance += byn;
 }
 
 /******************************************************************************
