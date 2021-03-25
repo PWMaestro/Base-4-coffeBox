@@ -35,7 +35,7 @@ double callBynMoneyMenu(double &userBalance, double &cashBalance);
 void showUserBalance(double &userBalance);
 void showDepositMoneyInMainMenu();
 
-void showMaintenanceServiceInMainMenu();
+void showServiceInMainMenu();
 void showMarkaCoffeeMachineInMainMenu();
 void showNamingInMainMenu();
 void showSelectCoffeeInMainMenu();
@@ -116,7 +116,7 @@ void showMainMenu(double &userBalance)
     showUserBalance(userBalance);
     showSelectCoffeeInMainMenu();
     showDepositMoneyInMainMenu();
-    showMaintenanceServiceInMainMenu();
+    showServiceInMainMenu();
     cout << endl;
     cout << endl;
 }
@@ -160,16 +160,16 @@ void showBynMoneyMenu()
 
 void showUserBalance(double &userBalance)
 {
-    cout << "*    "
+    cout << "   "
          << "Cash balance: " << userBalance << " BYN"
-         << "     *" << endl;
+         << "" << endl;
 }
 
 void showDepositMoneyInMainMenu()
 {
-    cout << "**** "
+    cout << "* "
          << "4. Deposit money"
-         << " ********" << endl;
+         << "           *" << endl;
 }
 
 void showMarkaCoffeeMachineInMainMenu()
@@ -190,14 +190,11 @@ void showMarkaCoffeeMachineInMainMenu()
          << "*****************************" << endl;
 }
 
-void showMaintenanceServiceInMainMenu()
+void showServiceInMainMenu()
 {
-    cout << "****** "
-         << "Maintenance service"
-         << " ***" << endl;
     cout << "* "
          << "5. Service"
-         << "                *" << endl;
+         << "                 *" << endl;
     cout << "*"
          << "*****************************" << endl;
 }
@@ -225,6 +222,8 @@ void showSelectCoffeeInMainMenu()
     cout << "* "
          << "3. LATTE       " << PRICE_LATTE << " Byn"
          << "     *" << endl;
+    cout << "*"
+         << "*****************************" << endl;
 }
 
 double callBynMoneyMenu(double &userBalance, double &cashBalance)
