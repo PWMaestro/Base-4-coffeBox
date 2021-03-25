@@ -69,14 +69,14 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
 {
     while (true)
     {
-        int choiceNumber = 0;
+        int choiceOption = 0;
 
         showMainMenu(userBalance);
         cout << "Please choice number: ";
-        cin >> choiceNumber;
+        cin >> choiceOption;
         cout << endl;
 
-        switch (choiceNumber)
+        switch (choiceOption)
         {
         case 1:
             giveCoffeeToUser(userBalance, PRICE_CAPPUCCINO, glasses);
@@ -237,16 +237,16 @@ int callCashDepositMenu(double &userBalance, double &cashBalance)
 {
     while (true)
     {
-        int choiceMoney = -1;
+        int choiceOption = -1;
 
         showCashDepositMenu();
         cout << endl;
         cout << "Please select how much money" << endl;
         cout << "you want to put in coffee machine: ";
-        cin >> choiceMoney;
+        cin >> choiceOption;
         cout << endl;
 
-        switch (choiceMoney)
+        switch (choiceOption)
         {
         case 0:
             return 0;
@@ -328,14 +328,14 @@ int callServiseMenu(int &currentGlassesNumber, double &allowedCash, double &user
 {
     while (true)
     {
-        int choiceNumber = -1;
+        int choiceOption = -1;
 
         showServiceMenu();
 
         cout << "Select option or press 0 to exit: ";
-        cin >> choiceNumber;
+        cin >> choiceOption;
 
-        switch (choiceNumber)
+        switch (choiceOption)
         {
         case 0:
             usersCurrentBalance = 0;
