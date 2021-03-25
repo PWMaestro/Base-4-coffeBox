@@ -38,7 +38,7 @@ void showSelectCoffeeInMainMenu();
 void showProceeds(const double &cash);
 
 void fillCoffeeMachineWithGlasses(int &glassesLeft);
-void takeOutProceeds(double &avaliableCash);
+void giveOutProceeds(double &avaliableCash);
 
 void showWrongInputMessage();
 
@@ -296,7 +296,7 @@ int callServiseMenu(int &currentGlassesNumber, double &allowedCash, double &user
             showProceeds(allowedCash);
             break;
         case 2:
-            takeOutProceeds(allowedCash);
+            giveOutProceeds(allowedCash);
             break;
         case 3:
             showGlasses(currentGlassesNumber);
@@ -334,7 +334,7 @@ void showGlasses(const int &glassesCount)
     cout << glassesCount << " glasses left." << endl;
 }
 
-void takeOutProceeds(double &avaliableCash)
+void giveOutProceeds(double &avaliableCash)
 {
     cout << "Opening the lock..." << endl;
     cout << "Opened." << endl;
