@@ -43,7 +43,7 @@ void takeOutProceeds(double &avaliableCash);
 void showWrongInputMessage();
 
 double buyCoffee(double userBalance, double price, int glasses);
-double getCurrentCashBalance(double userBalance);
+double getCurrentUserBalance(double userBalance);
 double putCashInCoffeeMachine(double balance, double byn);
 
 int removeGlasses(double userBalance, double price, int glasses);
@@ -66,7 +66,7 @@ int main()
         switch (choiceNumber)
         {
         case 1:
-            userBalance = getCurrentCashBalance(userBalance);
+            userBalance = getCurrentUserBalance(userBalance);
             break;
         case 2:
             userBalance = buyCoffee(userBalance, PRICE_CAPPUCCINO, glasses);
@@ -279,7 +279,7 @@ double buyCoffee(double userBalance, double price, int glasses)
     }
 }
 
-double getCurrentCashBalance(double userBalance)
+double getCurrentUserBalance(double userBalance)
 {
     if (userBalance == 0)
     {
