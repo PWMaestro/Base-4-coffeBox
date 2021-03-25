@@ -35,7 +35,7 @@ void showMaintenanceServiceInMainMenu();
 void showMarkaCoffeeMachineInMainMenu();
 void showNamingInMainMenu();
 void showSelectCoffeeInMainMenu();
-void showProceeds(double &cash);
+void showProceeds(const double &cash);
 
 void fillCoffeeMachineWithGlasses(int &glassesLeft);
 void takeOutProceeds(double &avaliableCash);
@@ -354,7 +354,7 @@ void showServiceMenu()
     cout << "0. Exit" << endl;
 }
 
-void showProceeds(double &cash)
+void showProceeds(const double &cash)
 {
     cout << "Avaliable proceeds is " << cash << " BYN." << endl;
 }
