@@ -46,6 +46,7 @@ double giveCoffeeToUser(double userBalance, double price, int &glasses);
 void getMoneyFromUser(double &userBalance, double &cashBalance, double byn);
 
 void removeGlass(int &glasses);
+int checkGlasses(int &avaliableGlasses);
 
 bool isAccessAllowed();
 
@@ -239,7 +240,7 @@ void showSelectCoffeeInMainMenu()
 
 double giveCoffeeToUser(double userBalance, double price, int &glasses)
 {
-    if (glasses != 0)
+    if (checkGlasses(glasses))
     {
         if (userBalance < price)
         {
@@ -403,13 +404,20 @@ bool isAccessAllowed()
 
 void removeGlass(int &glasses)
 {
-    if (glasses == 0)
+    glasses--;
+}
+
+int checkGlasses(int &avaliableGlasses)
+{
+    if (avaliableGlasses == 0)
     {
         cout << "Sorry we don't have glasses" << endl;
         cout << "Please, call our manager" << endl;
+
+        return 0;
     }
     else
     {
-        glasses--;
+        return avaliableGlasses;
     }
 }
