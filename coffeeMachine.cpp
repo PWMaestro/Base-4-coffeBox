@@ -402,8 +402,9 @@ bool isAccessAllowed()
 {
     int pin = 0;
 
-    for (int i = 1; i <= MAX_PIN_INPUT_ATTEMPTS; i++)
+    for (int i = 0; i < MAX_PIN_INPUT_ATTEMPTS; i++)
     {
+        cout << "You have " << MAX_PIN_INPUT_ATTEMPTS - i << " attempts left." << endl;
         cout << "Please, enter a PIN number:";
         cin >> pin;
         if (pin == PIN)
@@ -413,7 +414,6 @@ bool isAccessAllowed()
         else
         {
             cout << "Wrong PIN number!" << endl;
-            cout << "You have " << MAX_PIN_INPUT_ATTEMPTS - i << " attempts left." << endl;
         }
     }
 
@@ -549,7 +549,7 @@ void giveCoffeeToUser(double &userBalance, double price, int &glasses)
             cout << "       )          (        " << endl;
             cout << "      ((          ))       " << endl;
             cout << " (''''''''')o (''''''''')o " << endl;
-            
+
             userBalance -= price;
         }
         else
