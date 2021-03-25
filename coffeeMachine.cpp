@@ -24,13 +24,17 @@
 using namespace std;
 
 void showMainMenu(double &userBalance);
+void showBynMoneyMenu();
 void showServiceMenu();
+
 void showGlasses(const int &glassesCount);
 
 int callServiseMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance);
+double callBynMoneyMenu(double &userBalance, double &cashBalance);
 
 void showUserBalance(double &userBalance);
 void showDepositMoneyInMainMenu();
+
 void showMaintenanceServiceInMainMenu();
 void showMarkaCoffeeMachineInMainMenu();
 void showNamingInMainMenu();
@@ -44,8 +48,8 @@ void showWrongInputMessage();
 
 void giveCoffeeToUser(double &userBalance, double price, int &glasses);
 void getMoneyFromUser(double &userBalance, double &cashBalance, double byn);
-
 void removeGlass(int &glasses);
+
 int checkGlasses(int &avaliableGlasses);
 
 bool isMoneyEnough(double &currentBalance, double &itemPrice);
@@ -76,36 +80,9 @@ int main()
             giveCoffeeToUser(userBalance, PRICE_LATTE, glasses);
             break;
         case 4:
-            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_05);
+            callBynMoneyMenu(userBalance, cashBalance);
             break;
         case 5:
-            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_1);
-            break;
-        case 6:
-            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_2);
-            break;
-        case 7:
-            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_5);
-            break;
-        case 8:
-            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_10);
-            break;
-        case 9:
-            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_20);
-            break;
-        case 10:
-            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_50);
-            break;
-        case 11:
-            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_100);
-            break;
-        case 12:
-            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_200);
-            break;
-        case 13:
-            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_500);
-            break;
-        case 14:
             if (isAccessAllowed())
             {
                 cout << "Access allowed." << endl;
@@ -117,7 +94,6 @@ int main()
                 return 1;
             }
             break;
-
         default:
             showWrongInputMessage();
             break;
@@ -145,6 +121,43 @@ void showMainMenu(double &userBalance)
     cout << endl;
 }
 
+void showBynMoneyMenu()
+{
+    cout << "*"
+         << "*****************************" << endl;
+    cout << "* "
+         << "1. " << BYN_BILL_05 << " Byn"
+         << "   "
+         << "2. " << BYN_BILL_1 << " Byn "
+         << "     *" << endl;
+    cout << "* "
+         << "3. " << BYN_BILL_2 << " Byn    "
+         << " "
+         << "4. " << BYN_BILL_5 << " Byn "
+         << "     *" << endl;
+    cout << "* "
+         << "5. " << BYN_BILL_10 << " Byn   "
+         << " "
+         << "6. " << BYN_BILL_20 << " Byn "
+         << "    *" << endl;
+    cout << "* "
+         << "7. " << BYN_BILL_50 << " Byn   "
+         << " "
+         << "8. " << BYN_BILL_100 << " Byn"
+         << "    *" << endl;
+    cout << "* "
+         << "9. " << BYN_BILL_200 << " Byn  "
+         << " "
+         << "10. " << BYN_BILL_500 << " Byn "
+         << "  *" << endl;
+    cout << "* "
+         << "        "
+         << " 0. EXIT"
+         << "           *" << endl;
+    cout << "*"
+         << "*****************************" << endl;
+}
+
 void showUserBalance(double &userBalance)
 {
     cout << "*    "
@@ -154,34 +167,9 @@ void showUserBalance(double &userBalance)
 
 void showDepositMoneyInMainMenu()
 {
-    cout << "****** "
-         << "Deposit money"
-         << " *********" << endl;
-    cout << "* "
-         << "4.  " << BYN_BILL_05 << " Byn"
-         << "   "
-         << "5. " << BYN_BILL_1 << " Byn "
-         << "    *" << endl;
-    cout << "* "
-         << "6.  " << BYN_BILL_2 << " Byn    "
-         << " "
-         << "7. " << BYN_BILL_5 << " Byn "
-         << "    *" << endl;
-    cout << "* "
-         << "8.  " << BYN_BILL_10 << " Byn   "
-         << " "
-         << "9. " << BYN_BILL_20 << " Byn "
-         << "  *" << endl;
-    cout << "* "
-         << "10. " << BYN_BILL_50 << " Byn   "
-         << " "
-         << "11. " << BYN_BILL_100 << " Byn"
-         << "  *" << endl;
-    cout << "* "
-         << "12. " << BYN_BILL_200 << " Byn  "
-         << " "
-         << "13. " << BYN_BILL_500 << " Byn "
-         << " *" << endl;
+    cout << "**** "
+         << "4. Deposit money"
+         << " ********" << endl;
 }
 
 void showMarkaCoffeeMachineInMainMenu()
@@ -208,7 +196,7 @@ void showMaintenanceServiceInMainMenu()
          << "Maintenance service"
          << " ***" << endl;
     cout << "* "
-         << "14. Service"
+         << "5. Service"
          << "                *" << endl;
     cout << "*"
          << "*****************************" << endl;
@@ -233,10 +221,64 @@ void showSelectCoffeeInMainMenu()
          << "       *" << endl;
     cout << "* "
          << "2. ESPRESSO    " << PRICE_ESPRESSO << " Byn"
-         << "       *" << endl;
+         << "     *" << endl;
     cout << "* "
          << "3. LATTE       " << PRICE_LATTE << " Byn"
          << "     *" << endl;
+}
+
+double callBynMoneyMenu(double &userBalance, double &cashBalance)
+{
+    while (true)
+    {
+        int choiceMoney = -1;
+
+        showBynMoneyMenu();
+        cout << endl;
+        cout << "Please select how much money" << endl;
+        cout << "you want to put in coffee machine: ";
+        cin >> choiceMoney;
+        cout << endl;
+
+        switch (choiceMoney)
+        {
+        case 0:
+            return 1;
+        case 1:
+            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_05);
+            break;
+        case 2:
+            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_1);
+            break;
+        case 3:
+            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_2);
+            break;
+        case 4:
+            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_5);
+            break;
+        case 5:
+            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_10);
+            break;
+        case 6:
+            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_20);
+            break;
+        case 7:
+            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_50);
+            break;
+        case 8:
+            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_100);
+            break;
+        case 9:
+            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_200);
+            break;
+        case 10:
+            getMoneyFromUser(userBalance, cashBalance, BYN_BILL_500);
+            break;
+        default:
+            showWrongInputMessage();
+            break;
+        }
+    }
 }
 
 void giveCoffeeToUser(double &userBalance, double price, int &glasses)
