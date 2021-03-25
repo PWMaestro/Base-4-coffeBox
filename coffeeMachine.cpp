@@ -27,7 +27,7 @@ void showMainMenu();
 void showServiceMenu();
 void showGlasses(const int &glassesCount);
 
-int callServiseMenu(int &currentGlassesNumber, double &allowedCash);
+int callServiseMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance);
 
 void showCheckCashBalanceInMainMenu();
 void showDepositMoneyInMainMenu();
@@ -124,7 +124,7 @@ int main()
             if (isAccessAllowed())
             {
                 cout << "Access allowed." << endl;
-                callServiseMenu(glasses, userBalance);
+                callServiseMenu(glasses, cashBalance, userBalance);
             }
             else
             {
@@ -306,7 +306,7 @@ double putMoneyInCoffeeMachine(double balance, double byn)
  * 
 ******************************************************************************/
 
-int callServiseMenu(int &currentGlassesNumber, double &allowedCash)
+int callServiseMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance)
 {
     while (true)
     {
@@ -320,6 +320,7 @@ int callServiseMenu(int &currentGlassesNumber, double &allowedCash)
         switch (choiceNumber)
         {
         case 0:
+            usersCurrentBalance = 0;
             return 0;
         case 1:
             showProseeds(allowedCash);
