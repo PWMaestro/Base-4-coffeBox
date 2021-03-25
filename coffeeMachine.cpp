@@ -24,16 +24,16 @@
 using namespace std;
 
 void showMainMenu(double &userBalance);
-void showCashMoneyMenu();
+void showCashDepositMenu();
 void showServiceMenu();
 
 void showGlasses(const int &glassesCount);
 
 int callServiseMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance);
-int callCashMoneyMenu(double &userBalance, double &cashBalance);
+int callCashDepositMenu(double &userBalance, double &cashBalance);
 
 void showUserBalance(double &userBalance);
-void showDepositMoneyInMainMenu();
+void showCashDepositInMainMenu();
 
 void showServiceInMainMenu();
 void showMarkaCoffeeMachineInMainMenu();
@@ -80,7 +80,7 @@ int main()
             giveCoffeeToUser(userBalance, PRICE_LATTE, glasses);
             break;
         case 4:
-            callCashMoneyMenu(userBalance, cashBalance);
+            callCashDepositMenu(userBalance, cashBalance);
             break;
         case 5:
             if (isAccessAllowed())
@@ -115,13 +115,13 @@ void showMainMenu(double &userBalance)
     showNamingInMainMenu();
     showUserBalance(userBalance);
     showSelectCoffeeInMainMenu();
-    showDepositMoneyInMainMenu();
+    showCashDepositInMainMenu();
     showServiceInMainMenu();
     cout << endl;
     cout << endl;
 }
 
-void showCashMoneyMenu()
+void showCashDepositMenu()
 {
     cout << "*"
          << "*****************************" << endl;
@@ -165,11 +165,11 @@ void showUserBalance(double &userBalance)
          << "" << endl;
 }
 
-void showDepositMoneyInMainMenu()
+void showCashDepositInMainMenu()
 {
     cout << "* "
-         << "4. Deposit money"
-         << "           *" << endl;
+         << "4. Cash deposit"
+         << "            *" << endl;
 }
 
 void showMarkaCoffeeMachineInMainMenu()
@@ -226,13 +226,13 @@ void showSelectCoffeeInMainMenu()
          << "*****************************" << endl;
 }
 
-int callCashMoneyMenu(double &userBalance, double &cashBalance)
+int callCashDepositMenu(double &userBalance, double &cashBalance)
 {
     while (true)
     {
         int choiceMoney = -1;
 
-        showCashMoneyMenu();
+        showCashDepositMenu();
         cout << endl;
         cout << "Please select how much money" << endl;
         cout << "you want to put in coffee machine: ";
