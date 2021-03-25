@@ -23,36 +23,35 @@
 
 using namespace std;
 
-void showMainMenu(double &userBalance);
-void showCashDepositMenu();
-void showServiceMenu();
-
-void showGlasses(const int &glassesCount);
-
 int callMainMenu(int &glasses, double &userBalance, double &cashBalance);
 int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance);
 int callCashDepositMenu(double &userBalance, double &cashBalance);
+
 int addSugar();
+int checkGlasses(int &avaliableGlasses);
 
-void showUserBalance(double &userBalance);
-void showCashDepositInMainMenu();
-
-void showServiceInMainMenu();
-void showMarkaCoffeeMachineInMainMenu();
-void showNamingInMainMenu();
-void showSelectCoffeeInMainMenu();
-void showProceeds(const double &cash);
-
-void fillCoffeeMachineWithGlasses(int &glassesLeft);
-void giveOutProceeds(double &avaliableCash);
-
-void showWrongInputMessage();
+void showMainMenu(double &userBalance);
+void showServiceMenu();
+void showCashDepositMenu();
 
 void giveCoffeeToUser(double &userBalance, double price, int &glasses);
 void getMoneyFromUser(double &userBalance, double &cashBalance, double byn);
-void removeGlass(int &glasses);
 
-int checkGlasses(int &avaliableGlasses);
+void showMarkaCoffeeMachineInMainMenu();
+void showNamingInMainMenu();
+void showUserBalance(double &userBalance);
+void showSelectCoffeeInMainMenu();
+void showCashDepositInMainMenu();
+void showServiceInMainMenu();
+
+void showProceeds(const double &cash);
+void giveOutProceeds(double &avaliableCash);
+void showGlasses(const int &glassesCount);
+void fillCoffeeMachineWithGlasses(int &glassesLeft);
+
+void showWrongInputMessage();
+
+void removeGlass(int &glasses);
 
 bool isMoneyEnough(double &currentBalance, double &itemPrice);
 bool isAccessAllowed();
@@ -60,7 +59,9 @@ bool isAccessAllowed();
 int main()
 {
     int glasses = 7;
-    double userBalance = 0.0, cashBalance = 0.0;
+    double userBalance = 0.0,
+           cashBalance = 0.0;
+
     callMainMenu(glasses, userBalance, cashBalance);
 
     return 0;
@@ -288,38 +289,6 @@ int callCashDepositMenu(double &userBalance, double &cashBalance)
     }
 }
 
-void giveCoffeeToUser(double &userBalance, double price, int &glasses)
-{
-    if (checkGlasses(glasses))
-    {
-        if (isMoneyEnough(userBalance, price))
-        {
-            addSugar();
-            removeGlass(glasses);
-            cout << "Congratulation!!! You buy coffee" << endl
-                 << endl;
-            userBalance -= price;
-        }
-        else
-        {
-            cout << "Sorry, you don't have enough money" << endl;
-            cout << "You need to put cash in coffee" << endl;
-            cout << "machine" << endl
-                 << endl;
-        }
-    }
-}
-
-void getMoneyFromUser(double &userBalance, double &cashBalance, double byn)
-{
-    cout << "You put in coffee machine " << endl;
-    cout << byn << " BYN" << endl
-         << endl;
-
-    userBalance += byn;
-    cashBalance += byn;
-}
-
 /******************************************************************************
  * 
  * SERVICE MENU FUNCTIONS
@@ -506,4 +475,36 @@ int addSugar()
             break;
         }
     }
+}
+
+void giveCoffeeToUser(double &userBalance, double price, int &glasses)
+{
+    if (checkGlasses(glasses))
+    {
+        if (isMoneyEnough(userBalance, price))
+        {
+            addSugar();
+            removeGlass(glasses);
+            cout << "Congratulation!!! You buy coffee" << endl
+                 << endl;
+            userBalance -= price;
+        }
+        else
+        {
+            cout << "Sorry, you don't have enough money" << endl;
+            cout << "You need to put cash in coffee" << endl;
+            cout << "machine" << endl
+                 << endl;
+        }
+    }
+}
+
+void getMoneyFromUser(double &userBalance, double &cashBalance, double byn)
+{
+    cout << "You put in coffee machine " << endl;
+    cout << byn << " BYN" << endl
+         << endl;
+
+    userBalance += byn;
+    cashBalance += byn;
 }
