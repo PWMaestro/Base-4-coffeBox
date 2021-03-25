@@ -30,7 +30,7 @@ void showServiceMenu();
 void showGlasses(const int &glassesCount);
 
 int callServiseMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance);
-double callBynMoneyMenu(double &userBalance, double &cashBalance);
+double callCashMoneyMenu(double &userBalance, double &cashBalance);
 
 void showUserBalance(double &userBalance);
 void showDepositMoneyInMainMenu();
@@ -80,7 +80,7 @@ int main()
             giveCoffeeToUser(userBalance, PRICE_LATTE, glasses);
             break;
         case 4:
-            callBynMoneyMenu(userBalance, cashBalance);
+            callCashMoneyMenu(userBalance, cashBalance);
             break;
         case 5:
             if (isAccessAllowed())
@@ -121,7 +121,7 @@ void showMainMenu(double &userBalance)
     cout << endl;
 }
 
-void showBynMoneyMenu()
+void showCashMoneyMenu()
 {
     cout << "*"
          << "*****************************" << endl;
@@ -226,13 +226,13 @@ void showSelectCoffeeInMainMenu()
          << "*****************************" << endl;
 }
 
-double callBynMoneyMenu(double &userBalance, double &cashBalance)
+double callCashMoneyMenu(double &userBalance, double &cashBalance)
 {
     while (true)
     {
         int choiceMoney = -1;
 
-        showBynMoneyMenu();
+        showCashMoneyMenu();
         cout << endl;
         cout << "Please select how much money" << endl;
         cout << "you want to put in coffee machine: ";
