@@ -45,6 +45,8 @@ double buyCoffee(double cash, double price, int glasses);
 double getCurrentCashBalance(double cash);
 double putCashInCoffeeMachine(double cash, double byn);
 
+int removeGlasses(double cash, double price, int glasses);
+
 bool isAccessAllowed();
 
 int main()
@@ -67,12 +69,15 @@ int main()
             break;
         case 2:
             cash = buyCoffee(cash, PRICE_CAPPUCCINO, glasses);
+            glasses = removeGlasses(cash, PRICE_CAPPUCCINO, glasses);
             break;
         case 3:
             cash = buyCoffee(cash, PRICE_ESPRESSO, glasses);
+            glasses = removeGlasses(cash, PRICE_ESPRESSO, glasses);
             break;
         case 4:
             cash = buyCoffee(cash, PRICE_LATTE, glasses);
+            glasses = removeGlasses(cash, PRICE_LATTE, glasses);
             break;
         case 5:
             cash = putCashInCoffeeMachine(cash, FIFTY_BELARUS_COPECK);
@@ -276,6 +281,26 @@ double putCashInCoffeeMachine(double cash, double byn)
          << endl;
 
     return cash + byn;
+}
+
+int removeGlasses(double cash, double price, int glasses)
+{
+    if (glasses == 0)
+    {
+        cout << "Sorry we don't have glasses" << endl;
+        cout << "Please, call our manager" << endl;
+        glasses = 0;
+        return glasses;
+    }
+    else
+    {
+        if (cash < price)
+        {
+            return glasses;
+        }
+
+        return glasses - 1;
+    }
 }
 
 bool isAccessAllowed()
