@@ -68,6 +68,12 @@ int main()
     return 0;
 }
 
+/******************************************************************************
+ * 
+ * MAIN MENU FUNCTIONS
+ * 
+******************************************************************************/
+
 int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
 {
     while (true)
@@ -75,6 +81,8 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
         int choiceOption = 0;
 
         showMainMenu(userBalance);
+        checkGlasses(glasses);
+
         cout << "Please choice number: ";
         cin >> choiceOption;
         cout << endl;
@@ -112,12 +120,6 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
     }
     return 0;
 }
-
-/******************************************************************************
- * 
- * MAIN MENU FUNCTIONS
- * 
-******************************************************************************/
 
 void showMainMenu(double &userBalance)
 {
@@ -431,6 +433,12 @@ int checkGlasses(int &avaliableGlasses)
         cout << "Please, call our manager" << endl;
 
         return 0;
+    }
+    else if (avaliableGlasses < 9)
+    {
+        cout << "Oh! There are only " << avaliableGlasses << " glasses left." << endl;
+
+        return avaliableGlasses;
     }
     else
     {
