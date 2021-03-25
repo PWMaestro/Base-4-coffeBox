@@ -52,6 +52,7 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft);
 
 void showWrongInputMessage();
 
+void clearScreen();
 void removeGlass(int &glasses);
 
 bool isMoneyEnough(double &currentBalance, double &itemPrice);
@@ -86,6 +87,8 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
         cout << "Please choice number: ";
         cin >> choiceOption;
         cout << endl;
+
+        clearScreen();
 
         switch (choiceOption)
         {
@@ -251,6 +254,8 @@ int callCashDepositMenu(double &userBalance, double &cashBalance)
         cin >> choiceOption;
         cout << endl;
 
+        clearScreen();
+
         switch (choiceOption)
         {
         case 0:
@@ -371,6 +376,10 @@ void giveOutProceeds(double &avaliableCash)
  * GENERAL FUNCTIONS
  * 
 ******************************************************************************/
+void clearScreen()
+{
+    cout << string(100, '\n');
+}
 
 void fillCoffeeMachineWithGlasses(int &glassesLeft)
 {
@@ -479,7 +488,7 @@ int addSugar()
             cout << "Yes" << endl;
             adjustPortionSize();
             return 0;
-        
+
         default:
             showWrongInputMessage();
             break;
@@ -498,7 +507,7 @@ int adjustPortionSize()
         cout << "Press 0 to decrease" << endl;
         cout << "Press 1 to increase" << endl;
         cout << "Press 2 to confirm" << endl;
-        
+
         cin >> chosenOption;
 
         switch (chosenOption)
@@ -529,7 +538,7 @@ int adjustPortionSize()
             cout << "Adding " << currentPortionSize << " sugar portion..." << endl;
             return currentPortionSize;
             break;
-        
+
         default:
             showWrongInputMessage();
             break;
@@ -545,7 +554,8 @@ void giveCoffeeToUser(double &userBalance, double price, int &glasses)
         {
             addSugar();
             removeGlass(glasses);
-            cout << "Take your coffee, please!" << endl << endl;
+            cout << "Take your coffee, please!" << endl
+                 << endl;
             cout << "       )          (        " << endl;
             cout << "      ((          ))       " << endl;
             cout << " (''''''''')o (''''''''')o " << endl;
