@@ -42,7 +42,7 @@ void takeOutProceeds(double &avaliableCash);
 
 void showWrongInputMessage();
 
-double giveCoffeeToUser(double userBalance, double price, int &glasses);
+void giveCoffeeToUser(double &userBalance, double price, int &glasses);
 void getMoneyFromUser(double &userBalance, double &cashBalance, double byn);
 
 void removeGlass(int &glasses);
@@ -66,13 +66,13 @@ int main()
         switch (choiceNumber)
         {
         case 1:
-            userBalance = giveCoffeeToUser(userBalance, PRICE_CAPPUCCINO, glasses);
+            giveCoffeeToUser(userBalance, PRICE_CAPPUCCINO, glasses);
             break;
         case 2:
-            userBalance = giveCoffeeToUser(userBalance, PRICE_ESPRESSO, glasses);
+            giveCoffeeToUser(userBalance, PRICE_ESPRESSO, glasses);
             break;
         case 3:
-            userBalance = giveCoffeeToUser(userBalance, PRICE_LATTE, glasses);
+            giveCoffeeToUser(userBalance, PRICE_LATTE, glasses);
             break;
         case 4:
             getMoneyFromUser(userBalance, cashBalance, BYN_BILL_05);
@@ -238,7 +238,7 @@ void showSelectCoffeeInMainMenu()
          << "     *" << endl;
 }
 
-double giveCoffeeToUser(double userBalance, double price, int &glasses)
+void giveCoffeeToUser(double &userBalance, double price, int &glasses)
 {
     if (checkGlasses(glasses))
     {
@@ -248,19 +248,14 @@ double giveCoffeeToUser(double userBalance, double price, int &glasses)
             cout << "You need to put cash in coffee" << endl;
             cout << "machine" << endl
                  << endl;
-            return userBalance;
         }
         else
         {
             removeGlass(glasses);
             cout << "Congratulation!!! You buy coffee" << endl
                  << endl;
-            return userBalance - price;
+            userBalance -= price;
         }
-    }
-    else
-    {
-        return userBalance;
     }
 }
 
