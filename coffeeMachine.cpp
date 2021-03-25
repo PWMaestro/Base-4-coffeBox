@@ -29,6 +29,7 @@ void showServiceMenu();
 
 void showGlasses(const int &glassesCount);
 
+int callMainMenu(int &glasses, double &userBalance, double &cashBalance);
 int callServiseMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance);
 int callCashDepositMenu(double &userBalance, double &cashBalance);
 
@@ -57,12 +58,19 @@ bool isAccessAllowed();
 
 int main()
 {
-    int choiceNumber = 0;
     int glasses = 7;
     double userBalance = 0.0, cashBalance = 0.0;
+    callMainMenu(glasses, userBalance, cashBalance);
 
+    return 0;
+}
+
+int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
+{
     while (true)
     {
+        int choiceNumber = 0;
+
         showMainMenu(userBalance);
         cout << "Please choice number: ";
         cin >> choiceNumber;
@@ -99,7 +107,6 @@ int main()
             break;
         }
     }
-
     return 0;
 }
 
