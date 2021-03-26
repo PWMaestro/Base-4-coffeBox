@@ -115,7 +115,10 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
             }
             else
             {
-                cout << "The coffeeBox is shutting down currently..." << endl;
+                cout << endl;
+                cout << "The coffee machine is blocked," << endl;
+                cout << "please call our manager:" << endl;
+                cout << "+375(29)197 - 15 - 64 " << endl;
                 return 1;
             }
             break;
