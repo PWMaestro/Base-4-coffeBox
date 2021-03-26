@@ -151,16 +151,10 @@ void showCashDepositMenu()
     showRowStars(40);
     cout << "*" << setw(29) << "CASH DEPOSIT (BYN)" << setw(10) << "*" << endl;
     showRowStars(40);
-    cout << "*" << setw(10) << "1. " << BYN_BILL_05 << setw(15) << "2. "
-         << "  " << BYN_BILL_1 << setw(8) << "*" << endl;
-    cout << "*" << setw(10) << "3. "
-         << "  " << BYN_BILL_2 << setw(15) << "4. "
-         << "  " << BYN_BILL_5 << setw(8) << "*" << endl;
-    cout << "*" << setw(10) << "5. "
-         << " " << BYN_BILL_10 << setw(15) << "6. "
-         << " " << BYN_BILL_20 << setw(8) << "*" << endl;
-    cout << "*" << setw(10) << "7. "
-         << " " << BYN_BILL_50 << setw(15) << "8. " << BYN_BILL_100 << setw(8) << "*" << endl;
+    cout << "*" << setw(10) << "1. " << BYN_BILL_05 << setw(15) << "2. " << setw(3) << BYN_BILL_1 << setw(8) << "*" << endl;
+    cout << "*" << setw(10) << "3. " << setw(3) << BYN_BILL_2 << setw(15) << "4. " << setw(3) << BYN_BILL_5 << setw(8) << "*" << endl;
+    cout << "*" << setw(10) << "5. " << setw(3) << BYN_BILL_10 << setw(15) << "6. " << setw(3) << BYN_BILL_20 << setw(8) << "*" << endl;
+    cout << "*" << setw(10) << "7. " << setw(3) << BYN_BILL_50 << setw(15) << "8. " << BYN_BILL_100 << setw(8) << "*" << endl;
     cout << "*" << setw(10) << "9. " << BYN_BILL_200 << setw(15) << "10. " << BYN_BILL_500 << setw(8) << "*" << endl;
     cout << "*" << setw(22) << " 0. EXIT" << setw(17) << "*" << endl;
     showRowStars(40);
