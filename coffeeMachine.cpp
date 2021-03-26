@@ -219,6 +219,7 @@ int callCashDepositMenu(double &userBalance, double &cashBalance)
         cout << " " << setw(10) << "want to put in coffee machine: ";
         cin >> choiceOption;
         cout << endl;
+
         clearScreen();
 
         switch (choiceOption)
@@ -278,6 +279,8 @@ int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &user
 
         cout << "Select option or press 0 to exit: ";
         cin >> choiceOption;
+
+        clearScreen();
 
         switch (choiceOption)
         {
@@ -385,6 +388,9 @@ bool isAccessAllowed()
         cout << "You have " << MAX_PIN_INPUT_ATTEMPTS - i << " attempts left." << endl;
         cout << "Please, enter a PIN number:";
         cin >> pin;
+
+        clearScreen();
+
         if (pin == PIN)
         {
             return true;
@@ -448,6 +454,8 @@ int addSugar()
         cout << "press 0 if no." << endl;
         cin >> sugar;
 
+        clearScreen();
+
         switch (sugar)
         {
         case 0:
@@ -478,6 +486,8 @@ int adjustPortionSize()
         cout << "Press 2 to confirm" << endl;
 
         cin >> chosenOption;
+
+        clearScreen();
 
         switch (chosenOption)
         {
