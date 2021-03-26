@@ -235,12 +235,12 @@ int callCashDepositMenu(double &userBalance, double &cashBalance)
         int choiceOption = -1;
 
         showCashDepositMenu();
+
         cout << endl;
-        cout << "Please select how much money" << endl;
-        cout << "you want to put in coffee machine: ";
+        cout << " " << setw(20) << "Please select how much money do you" << endl;
+        cout << " " << setw(10) << "want to put in coffee machine: ";
         cin >> choiceOption;
         cout << endl;
-
         clearScreen();
 
         switch (choiceOption)
