@@ -369,7 +369,11 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft)
 
 void showWrongInputMessage()
 {
-    cout << "Wrong input! Try again..." << endl;
+    showRowStars(40);
+    cout << " " << setw(32) << "Wrong input! Try again..." << endl;
+    showRowStars(40);
+    cout << endl;
+    cout << endl;
 }
 
 bool isAccessAllowed()
