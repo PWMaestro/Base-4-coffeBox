@@ -529,10 +529,11 @@ void giveCoffeeToUser(double &userBalance, double price, int &glasses)
         }
         else
         {
-            cout << "Sorry, you don't have enough money" << endl;
-            cout << "You need to put cash in coffee" << endl;
-            cout << "machine" << endl
-                 << endl;
+            showRowStars(40);
+            cout << "  " << setw(5) << "Sorry, you don't have enough money!" << endl;
+            cout << " " << setw(5) << "You need to put cash in coffee machine" << endl;
+            showRowStars(40);
+            cout << endl;
         }
     }
 }
