@@ -8,9 +8,9 @@
 
 #define MAX_NUMBER_OF_GLASSES 700
 
-#define PRICE_CAPPUCCINO 3
+#define PRICE_CAPPUCCINO 2
 #define PRICE_ESPRESSO 2.5
-#define PRICE_LATTE 3.5
+#define PRICE_LATTE 3
 
 #define BYN_BILL_05 0.5
 #define BYN_BILL_1 1
@@ -162,70 +162,45 @@ void showCashDepositMenu()
 
 void showUserBalance(double &userBalance)
 {
-    cout << "   "
-         << "Cash balance: " << userBalance << " BYN"
-         << "" << endl;
+    cout << "" << setw(23) << "Cash balance: " << userBalance << " BYN" << endl;
+    showRowStars(40);
 }
 
 void showCashDepositInMainMenu()
 {
-    cout << "* "
-         << "4. Cash deposit"
-         << "            *" << endl;
+    cout << "*" << setw(24) << "4. Cash deposit" << setw(15) << "*" << endl;
+    showRowStars(40);
 }
 
 void showMarkaCoffeeMachineInMainMenu()
 {
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << "*"
-         << "*****************************" << endl;
-    cout << "*"
-         << "*****************************" << endl;
-    cout << "*   "
-         << "Italic coffee machine"
-         << "    *" << endl;
-    cout << "*"
-         << "*****************************" << endl;
-    cout << "*"
-         << "*****************************" << endl;
+    showRowStars(40);
+    showRowStars(40);
+    cout << "*" << setw(30) << "Italic coffee machine" << setw(9) << "*" << endl;
+    showRowStars(40);
+    showRowStars(40);
 }
 
 void showServiceInMainMenu()
 {
-    cout << "* "
-         << "5. Service"
-         << "                 *" << endl;
-    cout << "*"
-         << "*****************************" << endl;
+    cout << "*" << setw(19) << "5. Service" << setw(20) << "*" << endl;
+    showRowStars(40);
 }
 
 void showNamingInMainMenu()
 {
-    cout << "*        "
-         << "MAIN MENU"
-         << "           *" << endl;
-    cout << "*"
-         << "*****************************" << endl;
+    cout << "*" << setw(23) << "MAIN MENU" << setw(16) << "*" << endl;
+    showRowStars(40);
 }
 
 void showSelectCoffeeInMainMenu()
 {
-    cout << "****** "
-         << "Select coffee"
-         << " *********" << endl;
-    cout << "* "
-         << "1. CAPPUCCINO  " << PRICE_CAPPUCCINO << " Byn"
-         << "       *" << endl;
-    cout << "* "
-         << "2. ESPRESSO    " << PRICE_ESPRESSO << " Byn"
-         << "     *" << endl;
-    cout << "* "
-         << "3. LATTE       " << PRICE_LATTE << " Byn"
-         << "     *" << endl;
-    cout << "*"
-         << "*****************************" << endl;
+    cout << "*" << setw(28) << "Select Coffee (BYN)" << setw(11) << "*" << endl;
+    showRowStars(40);
+    cout << "*" << setw(22) << "1. Cappuccino" << setw(5) << PRICE_CAPPUCCINO << setw(12) << "*" << endl;
+    cout << "*" << setw(20) << "2. Espresso" << setw(7) << PRICE_ESPRESSO << setw(12) << "*" << endl;
+    cout << "*" << setw(17) << "3. Latte" << setw(10) << PRICE_LATTE << setw(12) << "*" << endl;
+    showRowStars(40);
 }
 
 int callCashDepositMenu(double &userBalance, double &cashBalance)
