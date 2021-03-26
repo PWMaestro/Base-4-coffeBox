@@ -561,9 +561,11 @@ void giveCoffeeToUser(double &userBalance, double price, int &glasses)
 
 void getMoneyFromUser(double &userBalance, double &cashBalance, double byn)
 {
-    cout << "You put in coffee machine " << endl;
-    cout << byn << " BYN" << endl
-         << endl;
+    showRowStars(40);
+    cout << " " << setw(30) << "You put in coffee machine " << byn << " BYN" << setw(5) << " " << endl;
+    showRowStars(40);
+    cout << endl;
+    cout << endl;
 
     userBalance += byn;
     cashBalance += byn;
