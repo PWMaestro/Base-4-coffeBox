@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <iomanip>
 
 #define PIN 4689 // PIN just for test
 #define MAX_PIN_INPUT_ATTEMPTS 3
@@ -39,6 +40,7 @@ void showCashDepositMenu();
 void giveCoffeeToUser(double &userBalance, double price, int &glasses);
 void getMoneyFromUser(double &userBalance, double &cashBalance, double byn);
 
+void showRowStars(int numberOfStars);
 void showMarkaCoffeeMachineInMainMenu();
 void showNamingInMainMenu();
 void showUserBalance(double &userBalance);
@@ -133,45 +135,73 @@ void showMainMenu(double &userBalance)
     showSelectCoffeeInMainMenu();
     showCashDepositInMainMenu();
     showServiceInMainMenu();
-    cout << endl;
+}
+
+void showRowStars(int numberOfStars)
+{
+    for (int row = 0; row < numberOfStars; row++)
+    {
+        cout << "*";
+    }
     cout << endl;
 }
 
 void showCashDepositMenu()
 {
-    cout << "*"
-         << "*****************************" << endl;
-    cout << "* "
-         << "1. " << BYN_BILL_05 << " Byn"
-         << "   "
-         << "2. " << BYN_BILL_1 << " Byn "
-         << "     *" << endl;
-    cout << "* "
-         << "3. " << BYN_BILL_2 << " Byn    "
-         << " "
-         << "4. " << BYN_BILL_5 << " Byn "
-         << "     *" << endl;
-    cout << "* "
-         << "5. " << BYN_BILL_10 << " Byn   "
-         << " "
-         << "6. " << BYN_BILL_20 << " Byn "
-         << "    *" << endl;
-    cout << "* "
-         << "7. " << BYN_BILL_50 << " Byn   "
-         << " "
-         << "8. " << BYN_BILL_100 << " Byn"
-         << "    *" << endl;
-    cout << "* "
-         << "9. " << BYN_BILL_200 << " Byn  "
-         << " "
-         << "10. " << BYN_BILL_500 << " Byn "
-         << "  *" << endl;
-    cout << "* "
-         << "        "
-         << " 0. EXIT"
-         << "           *" << endl;
-    cout << "*"
-         << "*****************************" << endl;
+    showRowStars(40);
+    cout << "*";
+    cout << setw(29);
+    cout << "CASH DEPOSIT (BYN)";
+    cout << setw(10);
+    cout << "*" << endl;
+    showRowStars(40);
+    cout << "*";
+    cout << setw(10);
+    cout << "1. " << BYN_BILL_05;
+    cout << setw(15);
+    cout << "2. "
+         << "  " << BYN_BILL_1;
+    cout << setw(8);
+    cout << "*" << endl;
+    cout << "*";
+    cout << setw(10);
+    cout << "3. "
+         << "  " << BYN_BILL_2;
+    cout << setw(15);
+    cout << "4. "
+         << "  " << BYN_BILL_5;
+    cout << setw(8);
+    cout << "*" << endl;
+    cout << "*";
+    cout << setw(10);
+    cout << "5. "
+         << " " << BYN_BILL_10;
+    cout << setw(15);
+    cout << "6. "
+         << " " << BYN_BILL_20;
+    cout << setw(8);
+    cout << "*" << endl;
+    cout << "*";
+    cout << setw(10);
+    cout << "7. "
+         << " " << BYN_BILL_50;
+    cout << setw(15);
+    cout << "8. " << BYN_BILL_100;
+    cout << setw(8);
+    cout << "*" << endl;
+    cout << "*";
+    cout << setw(10);
+    cout << "9. " << BYN_BILL_200;
+    cout << setw(15);
+    cout << "10. " << BYN_BILL_500;
+    cout << setw(8);
+    cout << "*" << endl;
+    cout << "*";
+    cout << setw(22);
+    cout << " 0. EXIT";
+    cout << setw(17);
+    cout << "*" << endl;
+    showRowStars(40);
 }
 
 void showUserBalance(double &userBalance)
