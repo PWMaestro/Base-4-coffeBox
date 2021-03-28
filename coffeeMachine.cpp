@@ -53,9 +53,12 @@ void giveOutProceeds(double &avaliableCash);
 void showGlasses(const int &glassesCount);
 void fillCoffeeMachineWithGlasses(int &glassesLeft);
 
+void showDefaultCashDeposit();
+
 void showWrongInputMessage();
 
 void clearScreen();
+void showDefaultGlasses();
 void removeGlass(int &glasses);
 
 bool isMoneyEnough(double &currentBalance, double &itemPrice);
@@ -160,6 +163,25 @@ void showCashDepositMenu()
     cout << "*" << setw(10) << "9. " << BYN_BILL_200 << setw(15) << "10. " << BYN_BILL_500 << setw(8) << "*" << endl;
     cout << "*" << setw(22) << " 0. EXIT" << setw(17) << "*" << endl;
     showRowStars(40);
+}
+
+void showDefaultGlasses()
+{
+    showRowStars(40);
+    cout << "  " << setw(10) << "Sorry we don't have glasses! Please," << endl;
+    cout << "  " << setw(20) << "call our manager: +375(29) 197-15-64" << endl;
+    showRowStars(40);
+    cout << endl;
+    cout << endl;
+}
+
+void showDefaultCashDeposit()
+{
+    showRowStars(40);
+    cout << "  " << setw(5) << "Sorry, you don't have enough money!" << endl;
+    cout << " " << setw(5) << "You need to put cash in coffee machine" << endl;
+    showRowStars(40);
+    cout << endl;
 }
 
 void showUserBalance(double &userBalance)
@@ -412,12 +434,7 @@ int checkGlasses(int &avaliableGlasses)
 {
     if (avaliableGlasses == 0)
     {
-        showRowStars(40);
-        cout << "  " << setw(10) << "Sorry we don't have glasses! Please," << endl;
-        cout << "  " << setw(20) << "call our manager: +375(29) 197-15-64" << endl;
-        showRowStars(40);
-        cout << endl;
-        cout << endl;
+        showDefaultGlasses();
         return 0;
     }
     else if (avaliableGlasses < 9)
@@ -543,11 +560,7 @@ void giveCoffeeToUser(double &userBalance, double price, int &glasses)
         }
         else
         {
-            showRowStars(40);
-            cout << "  " << setw(5) << "Sorry, you don't have enough money!" << endl;
-            cout << " " << setw(5) << "You need to put cash in coffee machine" << endl;
-            showRowStars(40);
-            cout << endl;
+            showDefaultCashDeposit();
         }
     }
 }
