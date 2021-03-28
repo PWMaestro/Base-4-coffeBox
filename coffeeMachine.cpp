@@ -41,7 +41,7 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft);
 
 void showCashDepositMenu();
 void showMainMenu(double &userBalance, int &glasses);
-void showServiceMenu();
+void showServiceMenu(int &currentGlassesNumber, double &allowedCash);
 
 void showCashDepositInMainMenu();
 void showMarkaCoffeeMachineInMainMenu();
@@ -330,7 +330,7 @@ int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &user
     {
         int choiceOption = -1;
 
-        showServiceMenu();
+        showServiceMenu(currentGlassesNumber, allowedCash);
 
         cout << "Select option or press 0 to exit: ";
         cin >> choiceOption;
@@ -362,10 +362,13 @@ int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &user
     }
 }
 
-void showServiceMenu()
+void showServiceMenu(int &currentGlassesNumber, double &allowedCash)
 {
     cout << endl
          << "Service menu" << endl;
+    cout << "--------------------" << endl;
+    cout << "Glasses left: " << currentGlassesNumber << endl;
+    cout << "Cash balance: " << allowedCash << " BYN." << endl;
     cout << "--------------------" << endl;
     cout << "1. Show avaliable revenue" << endl;
     cout << "2. To issue proceeds" << endl;
