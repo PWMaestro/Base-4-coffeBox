@@ -462,7 +462,7 @@ int checkGlasses(int &avaliableGlasses)
 
 bool isMoneyEnough(double &currentBalance, double &itemPrice)
 {
-    if (currentBalance > itemPrice)
+    if (currentBalance >= itemPrice)
     {
         return true;
     }
