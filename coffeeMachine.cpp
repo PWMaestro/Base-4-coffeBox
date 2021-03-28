@@ -28,12 +28,13 @@
 using namespace std;
 
 int callCashDepositMenu(double &userBalance, double &cashBalance);
-int callMainMenu(int &glasses, double &userBalance, double &cashBalance);
-int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance);
+int callMainMenu(int &glasses, double &userBalance, double &cashBalance, int &avaliablePinInputAttempts);
+int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance, int &avaliablePinInputAttempts);
 
 int addSugar();
 int adjustPortionSize();
 int checkGlasses(int &avaliableGlasses);
+int checkAccess(int &avaliablePinInputAttempts);
 
 void clearScreen();
 void getMoneyFromUser(double &userBalance, double &cashBalance, double byn);
@@ -62,16 +63,16 @@ void showProceeds(const double &cash);
 void showRowStars(int numberOfStars);
 void showWrongInputMessage();
 
-bool isAccessAllowed();
 bool isMoneyEnough(double &currentBalance, double &itemPrice);
 
 int main()
 {
-    int glasses = 7;
+    int glasses = 7,
+        avaliablePinInputAttempts = MAX_PIN_INPUT_ATTEMPTS;
     double userBalance = 0.0,
            cashBalance = 0.0;
 
-    callMainMenu(glasses, userBalance, cashBalance);
+    callMainMenu(glasses, userBalance, cashBalance, avaliablePinInputAttempts);
 
     return 0;
 }
@@ -82,7 +83,7 @@ int main()
  * 
 ******************************************************************************/
 
-int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
+int callMainMenu(int &glasses, double &userBalance, double &cashBalance, int &avaliablePinInputAttempts)
 {
     while (true)
     {
@@ -111,18 +112,21 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
             callCashDepositMenu(userBalance, cashBalance);
             break;
         case 5:
-            if (isAccessAllowed())
+            switch (checkAccess(avaliablePinInputAttempts))
             {
-                cout << "Access allowed." << endl;
-                callServiceMenu(glasses, cashBalance, userBalance);
-            }
-            else
-            {
+            case 0:
+                cout << "You canceled operation..." << endl;
+                break;
+            case 1:
+                callServiceMenu(glasses, cashBalance, userBalance, avaliablePinInputAttempts);
+                break;
+            case -1:
                 cout << endl;
                 cout << "The coffee machine is blocked!" << endl;
                 cout << "Reason: too many PIN input attempts." << endl;
                 cout << "Please, call our manager to unlock:" << endl;
                 cout << MANAGER_CONTACTS << endl;
+
                 return 1;
             }
             break;
@@ -327,11 +331,12 @@ int callCashDepositMenu(double &userBalance, double &cashBalance)
  * 
 ******************************************************************************/
 
-int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance)
+int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance, int &avaliablePinInputAttempts)
 {
     while (true)
     {
         int choiceOption = -1;
+        avaliablePinInputAttempts = MAX_PIN_INPUT_ATTEMPTS;
 
         showServiceMenu(currentGlassesNumber, allowedCash);
 
@@ -431,28 +436,32 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft)
     }
 }
 
-bool isAccessAllowed()
+int checkAccess(int &avaliablePinInputAttempts)
 {
-    int pin = 0;
-
-    for (int i = 0; i < MAX_PIN_INPUT_ATTEMPTS; i++)
+    int userInput = 0;
+    
+    while (avaliablePinInputAttempts > 0)
     {
-        cout << "Please, enter a PIN number:";
-        cin >> pin;
+        cout << "Please, enter a PIN number or press 0 to exit:";
+        cin >> userInput;
 
         clearScreen();
 
-        if (pin == PIN)
+        if (userInput == 0)
         {
-            return true;
+            return 0;
+        }
+        else if (userInput == PIN)
+        {
+            return 1;
         }
         else
         {
+            avaliablePinInputAttempts--;
             cout << "Wrong PIN number!" << endl;
         }
     }
-
-    return false;
+    return -1;
 }
 
 int checkGlasses(int &avaliableGlasses)
