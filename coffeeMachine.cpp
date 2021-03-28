@@ -25,44 +25,42 @@
 
 using namespace std;
 
+int callCashDepositMenu(double &userBalance, double &cashBalance);
 int callMainMenu(int &glasses, double &userBalance, double &cashBalance);
 int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &usersCurrentBalance);
-int callCashDepositMenu(double &userBalance, double &cashBalance);
 
 int addSugar();
 int adjustPortionSize();
 int checkGlasses(int &avaliableGlasses);
 
-void showMainMenu(double &userBalance);
-void showServiceMenu();
-void showCashDepositMenu();
-
-void giveCoffeeToUser(double &userBalance, double price, int &glasses);
-void getMoneyFromUser(double &userBalance, double &cashBalance, double byn);
-
-void showRowStars(int numberOfStars);
-void showMarkaCoffeeMachineInMainMenu();
-void showNamingInMainMenu();
-void showUserBalance(double &userBalance);
-void showSelectCoffeeInMainMenu();
-void showCashDepositInMainMenu();
-void showServiceInMainMenu();
-
-void showProceeds(const double &cash);
-void giveOutProceeds(double &avaliableCash);
-void showGlasses(const int &glassesCount);
-void fillCoffeeMachineWithGlasses(int &glassesLeft);
-
-void showDefaultCashDeposit();
-void showCoffeeIsPurchased();
-void showWrongInputMessage();
-
 void clearScreen();
-void showDefaultGlasses();
+void getMoneyFromUser(double &userBalance, double &cashBalance, double byn);
+void giveCoffeeToUser(double &userBalance, double price, int &glasses);
+void giveOutProceeds(double &avaliableCash);
+void fillCoffeeMachineWithGlasses(int &glassesLeft);
 void removeGlass(int &glasses);
 
-bool isMoneyEnough(double &currentBalance, double &itemPrice);
+void showCashDepositMenu();
+void showMainMenu(double &userBalance);
+void showServiceMenu();
+
+void showCashDepositInMainMenu();
+void showMarkaCoffeeMachineInMainMenu();
+void showNamingInMainMenu();
+void showSelectCoffeeInMainMenu();
+void showServiceInMainMenu();
+void showUserBalanceInMainMenu(double &userBalance);
+
+void showCoffeeIsPurchased();
+void showDefaultCashDeposit();
+void showDefaultGlasses();
+void showGlasses(const int &glassesCount);
+void showProceeds(const double &cash);
+void showRowStars(int numberOfStars);
+void showWrongInputMessage();
+
 bool isAccessAllowed();
+bool isMoneyEnough(double &currentBalance, double &itemPrice);
 
 int main()
 {
@@ -136,58 +134,10 @@ void showMainMenu(double &userBalance)
 {
     showMarkaCoffeeMachineInMainMenu();
     showNamingInMainMenu();
-    showUserBalance(userBalance);
+    showUserBalanceInMainMenu(userBalance);
     showSelectCoffeeInMainMenu();
     showCashDepositInMainMenu();
     showServiceInMainMenu();
-}
-
-void showRowStars(int numberOfStars)
-{
-    for (int row = 0; row < numberOfStars; row++)
-    {
-        cout << "*";
-    }
-    cout << endl;
-}
-
-void showCashDepositMenu()
-{
-    showRowStars(40);
-    cout << "*" << setw(29) << "CASH DEPOSIT (BYN)" << setw(10) << "*" << endl;
-    showRowStars(40);
-    cout << "*" << setw(10) << "1. " << BYN_BILL_05 << setw(15) << "2. " << setw(3) << BYN_BILL_1 << setw(8) << "*" << endl;
-    cout << "*" << setw(10) << "3. " << setw(3) << BYN_BILL_2 << setw(15) << "4. " << setw(3) << BYN_BILL_5 << setw(8) << "*" << endl;
-    cout << "*" << setw(10) << "5. " << setw(3) << BYN_BILL_10 << setw(15) << "6. " << setw(3) << BYN_BILL_20 << setw(8) << "*" << endl;
-    cout << "*" << setw(10) << "7. " << setw(3) << BYN_BILL_50 << setw(15) << "8. " << BYN_BILL_100 << setw(8) << "*" << endl;
-    cout << "*" << setw(10) << "9. " << BYN_BILL_200 << setw(15) << "10. " << BYN_BILL_500 << setw(8) << "*" << endl;
-    cout << "*" << setw(22) << " 0. EXIT" << setw(17) << "*" << endl;
-    showRowStars(40);
-}
-
-void showDefaultGlasses()
-{
-    showRowStars(40);
-    cout << "  " << setw(10) << "Sorry we don't have glasses! Please," << endl;
-    cout << "  " << setw(20) << "call our manager: +375(29) 197-15-64" << endl;
-    showRowStars(40);
-    cout << endl;
-    cout << endl;
-}
-
-void showDefaultCashDeposit()
-{
-    showRowStars(40);
-    cout << "  " << setw(5) << "Sorry, you don't have enough money!" << endl;
-    cout << " " << setw(5) << "You need to put cash in coffee machine" << endl;
-    showRowStars(40);
-    cout << endl;
-}
-
-void showUserBalance(double &userBalance)
-{
-    cout << "" << setw(25) << "Cash balance: " << userBalance << " BYN" << endl;
-    showRowStars(40);
 }
 
 void showCashDepositInMainMenu()
@@ -196,27 +146,12 @@ void showCashDepositInMainMenu()
     showRowStars(40);
 }
 
-void showCoffeeIsPurchased()
-{
-    showRowStars(40);
-    cout << "  " << setw(30) << "Take your coffee, please!" << endl;
-    showRowStars(40);
-    cout << endl;
-    cout << endl;
-}
-
 void showMarkaCoffeeMachineInMainMenu()
 {
     showRowStars(40);
     showRowStars(40);
     cout << "*" << setw(30) << "Italic coffee machine" << setw(9) << "*" << endl;
     showRowStars(40);
-    showRowStars(40);
-}
-
-void showServiceInMainMenu()
-{
-    cout << "*" << setw(19) << "5. Service" << setw(20) << "*" << endl;
     showRowStars(40);
 }
 
@@ -234,6 +169,78 @@ void showSelectCoffeeInMainMenu()
     cout << "*" << setw(20) << "2. Espresso" << setw(7) << PRICE_ESPRESSO << setw(12) << "*" << endl;
     cout << "*" << setw(17) << "3. Latte" << setw(10) << PRICE_LATTE << setw(12) << "*" << endl;
     showRowStars(40);
+}
+
+void showServiceInMainMenu()
+{
+    cout << "*" << setw(19) << "5. Service" << setw(20) << "*" << endl;
+    showRowStars(40);
+}
+
+void showUserBalanceInMainMenu(double &userBalance)
+{
+    cout << "" << setw(25) << "Cash balance: " << userBalance << " BYN" << endl;
+    showRowStars(40);
+}
+
+void showCashDepositMenu()
+{
+    showRowStars(40);
+    cout << "*" << setw(29) << "CASH DEPOSIT (BYN)" << setw(10) << "*" << endl;
+    showRowStars(40);
+    cout << "*" << setw(10) << "1. " << BYN_BILL_05 << setw(15) << "2. " << setw(3) << BYN_BILL_1 << setw(8) << "*" << endl;
+    cout << "*" << setw(10) << "3. " << setw(3) << BYN_BILL_2 << setw(15) << "4. " << setw(3) << BYN_BILL_5 << setw(8) << "*" << endl;
+    cout << "*" << setw(10) << "5. " << setw(3) << BYN_BILL_10 << setw(15) << "6. " << setw(3) << BYN_BILL_20 << setw(8) << "*" << endl;
+    cout << "*" << setw(10) << "7. " << setw(3) << BYN_BILL_50 << setw(15) << "8. " << BYN_BILL_100 << setw(8) << "*" << endl;
+    cout << "*" << setw(10) << "9. " << BYN_BILL_200 << setw(15) << "10. " << BYN_BILL_500 << setw(8) << "*" << endl;
+    cout << "*" << setw(22) << " 0. EXIT" << setw(17) << "*" << endl;
+    showRowStars(40);
+}
+
+void showCoffeeIsPurchased()
+{
+    showRowStars(40);
+    cout << "  " << setw(30) << "Take your coffee, please!" << endl;
+    showRowStars(40);
+    cout << endl;
+    cout << endl;
+}
+
+void showDefaultCashDeposit()
+{
+    showRowStars(40);
+    cout << "  " << setw(5) << "Sorry, you don't have enough money!" << endl;
+    cout << " " << setw(5) << "You need to put cash in coffee machine" << endl;
+    showRowStars(40);
+    cout << endl;
+}
+
+void showDefaultGlasses()
+{
+    showRowStars(40);
+    cout << "  " << setw(10) << "Sorry we don't have glasses! Please," << endl;
+    cout << "  " << setw(20) << "call our manager: +375(29) 197-15-64" << endl;
+    showRowStars(40);
+    cout << endl;
+    cout << endl;
+}
+
+void showRowStars(int numberOfStars)
+{
+    for (int row = 0; row < numberOfStars; row++)
+    {
+        cout << "*";
+    }
+    cout << endl;
+}
+
+void showWrongInputMessage()
+{
+    showRowStars(40);
+    cout << " " << setw(32) << "Wrong input! Try again..." << endl;
+    showRowStars(40);
+    cout << endl;
+    cout << endl;
 }
 
 int callCashDepositMenu(double &userBalance, double &cashBalance)
@@ -398,15 +405,6 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft)
         glassesLeft = totalGlasses;
         cout << "You successfully filled coffeeBox with " << newGlasses << " glasses." << endl;
     }
-}
-
-void showWrongInputMessage()
-{
-    showRowStars(40);
-    cout << " " << setw(32) << "Wrong input! Try again..." << endl;
-    showRowStars(40);
-    cout << endl;
-    cout << endl;
 }
 
 bool isAccessAllowed()
