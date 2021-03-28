@@ -439,7 +439,7 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft)
 int checkAccess(int &avaliablePinInputAttempts)
 {
     int userInput = 0;
-    
+
     while (avaliablePinInputAttempts > 0)
     {
         cout << "Please, enter a PIN number or press 0 to exit:";
@@ -493,13 +493,17 @@ int addSugar()
 {
     int sugar = 0;
 
-    cout << "Should I add any sugar?" << endl;
+    showRowStars(40);
+    cout << "*" << setw(32) << "Would you like to add sugar?" << setw(7) << "*" << endl;
+    showRowStars(40);
 
     while (true)
     {
-        cout << "Press 1 if yes," << endl;
-        cout << "press 0 if no." << endl;
+        cout << "*" << setw(12) << " Yes " << setw(2) << "1" << setw(12) << "No " << setw(2) << "0" << setw(11) << "*" << endl;
+        showRowStars(40);
+        cout << "Please choice option: ";
         cin >> sugar;
+        cout << endl;
 
         clearScreen();
 
