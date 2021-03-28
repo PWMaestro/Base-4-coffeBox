@@ -164,7 +164,7 @@ void showCashDepositMenu()
 
 void showUserBalance(double &userBalance)
 {
-    cout << "" << setw(23) << "Cash balance: " << userBalance << " BYN" << endl;
+    cout << "" << setw(25) << "Cash balance: " << userBalance << " BYN" << endl;
     showRowStars(40);
 }
 
@@ -197,7 +197,7 @@ void showNamingInMainMenu()
 
 void showSelectCoffeeInMainMenu()
 {
-    cout << "*" << setw(28) << "Select Coffee (BYN)" << setw(11) << "*" << endl;
+    cout << "*" << setw(25) << "Select Coffee" << setw(14) << "*" << endl;
     showRowStars(40);
     cout << "*" << setw(22) << "1. Cappuccino" << setw(5) << PRICE_CAPPUCCINO << setw(12) << "*" << endl;
     cout << "*" << setw(20) << "2. Espresso" << setw(7) << PRICE_ESPRESSO << setw(12) << "*" << endl;
@@ -418,7 +418,6 @@ int checkGlasses(int &avaliableGlasses)
         showRowStars(40);
         cout << endl;
         cout << endl;
-
         return 0;
     }
     else if (avaliableGlasses < 9)
