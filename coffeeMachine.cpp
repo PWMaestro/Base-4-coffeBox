@@ -47,7 +47,7 @@ void showMainMenu(double &userBalance, int &glasses);
 void showServiceMenu(int &currentGlassesNumber, double &allowedCash);
 
 void showCashDepositInMainMenu();
-void showMarkaCoffeeMachineInMainMenu();
+void showLogoCoffeeMachineInMainMenu();
 void showNamingInMainMenu();
 void shownumberOfGlassesInMainMenu(int &glasses);
 void showSelectCoffeeInMainMenu();
@@ -140,7 +140,7 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance, int &av
 
 void showMainMenu(double &userBalance, int &glasses)
 {
-    showMarkaCoffeeMachineInMainMenu();
+    showLogoCoffeeMachineInMainMenu();
     showNamingInMainMenu();
     showUserBalanceInMainMenu(userBalance);
     shownumberOfGlassesInMainMenu(glasses);
@@ -155,11 +155,11 @@ void showCashDepositInMainMenu()
     showRowStars(40);
 }
 
-void showMarkaCoffeeMachineInMainMenu()
+void showLogoCoffeeMachineInMainMenu()
 {
     showRowStars(40);
     showRowStars(40);
-    cout << "*" << setw(30) << "Italic coffee machine" << setw(9) << "*" << endl;
+    cout << "*" << setw(30) << "LavAzza coffee machine" << setw(9) << "*" << endl;
     showRowStars(40);
     showRowStars(40);
 }
