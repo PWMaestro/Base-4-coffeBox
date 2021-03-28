@@ -41,12 +41,13 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft);
 void removeGlass(int &glasses);
 
 void showCashDepositMenu();
-void showMainMenu(double &userBalance);
+void showMainMenu(double &userBalance, int &glasses);
 void showServiceMenu();
 
 void showCashDepositInMainMenu();
 void showMarkaCoffeeMachineInMainMenu();
 void showNamingInMainMenu();
+void shownumberOfGlassesInMainMenu(int &glasses);
 void showSelectCoffeeInMainMenu();
 void showServiceInMainMenu();
 void showUserBalanceInMainMenu(double &userBalance);
@@ -86,7 +87,7 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
     {
         int choiceOption = 0;
 
-        showMainMenu(userBalance);
+        showMainMenu(userBalance, glasses);
 
         cout << "Please choice number: ";
         cin >> choiceOption;
@@ -131,11 +132,12 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
     return 0;
 }
 
-void showMainMenu(double &userBalance)
+void showMainMenu(double &userBalance, int &glasses)
 {
     showMarkaCoffeeMachineInMainMenu();
     showNamingInMainMenu();
     showUserBalanceInMainMenu(userBalance);
+    shownumberOfGlassesInMainMenu(glasses);
     showSelectCoffeeInMainMenu();
     showCashDepositInMainMenu();
     showServiceInMainMenu();
@@ -159,6 +161,12 @@ void showMarkaCoffeeMachineInMainMenu()
 void showNamingInMainMenu()
 {
     cout << "*" << setw(23) << "MAIN MENU" << setw(16) << "*" << endl;
+    showRowStars(40);
+}
+
+void shownumberOfGlassesInMainMenu(int &glasses)
+{
+    cout << "" << setw(30) << "Number of glasses: " << setw(1) << glasses << endl;
     showRowStars(40);
 }
 
@@ -393,7 +401,6 @@ void giveOutProceeds(double &avaliableCash)
 ******************************************************************************/
 void clearScreen()
 {
-    // cout << string(100, '\n');
     system("cls");
 }
 
