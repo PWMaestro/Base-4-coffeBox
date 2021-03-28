@@ -91,7 +91,7 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance, int &av
 
         showMainMenu(userBalance, glasses);
 
-        cout << "Please choice number: ";
+        cout << "Please choice option: ";
         cin >> choiceOption;
         cout << endl;
 
@@ -491,7 +491,7 @@ bool isMoneyEnough(double &currentBalance, double &itemPrice)
 
 int addSugar()
 {
-    int sugar = 0;
+    int choiceOption = 0;
 
     while (true)
     {
@@ -501,12 +501,12 @@ int addSugar()
         cout << "*" << setw(12) << " Yes " << setw(2) << "1" << setw(12) << "No " << setw(2) << "0" << setw(11) << "*" << endl;
         showRowStars(40);
         cout << "Please choice option: ";
-        cin >> sugar;
+        cin >> choiceOption;
         cout << endl;
 
         clearScreen();
 
-        switch (sugar)
+        switch (choiceOption)
         {
         case 0:
             return 0;
@@ -525,7 +525,7 @@ int addSugar()
 int adjustPortionSize()
 {
     int currentPortionSize = 4;
-    int chosenOption = -1;
+    int choiceOption = -1;
 
     while (true)
     {
@@ -537,12 +537,12 @@ int adjustPortionSize()
              << "Decrease " << setw(1) << "2" << setw(2) << "*" << endl;
         showRowStars(40);
         cout << "Please choice option: ";
-        cin >> chosenOption;
+        cin >> choiceOption;
         cout << endl;
 
         clearScreen();
 
-        switch (chosenOption)
+        switch (choiceOption)
         {
         case 0:
             return currentPortionSize;
