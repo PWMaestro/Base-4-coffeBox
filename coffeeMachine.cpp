@@ -23,6 +23,8 @@
 #define BYN_BILL_200 200
 #define BYN_BILL_500 500
 
+#define MANAGER_CONTACTS "+375 (29) 197-15-64 "
+
 using namespace std;
 
 int callCashDepositMenu(double &userBalance, double &cashBalance);
@@ -117,9 +119,10 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
             else
             {
                 cout << endl;
-                cout << "The coffee machine is blocked," << endl;
-                cout << "please call our manager:" << endl;
-                cout << "+375(29)197 - 15 - 64 " << endl;
+                cout << "The coffee machine is blocked!" << endl;
+                cout << "Reason: too many PIN input attempts." << endl;
+                cout << "Please, call our manager to unlock:" << endl;
+                cout << MANAGER_CONTACTS << endl;
                 return 1;
             }
             break;
