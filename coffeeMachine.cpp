@@ -222,6 +222,7 @@ void showDefaultCashDeposit()
     cout << " " << setw(5) << "You need to put cash in coffee machine" << endl;
     showRowStars(40);
     cout << endl;
+    cout << endl;
 }
 
 void showDefaultGlasses()
