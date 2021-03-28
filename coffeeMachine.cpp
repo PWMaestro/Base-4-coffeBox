@@ -393,7 +393,8 @@ void giveOutProceeds(double &avaliableCash)
 ******************************************************************************/
 void clearScreen()
 {
-    cout << string(100, '\n');
+    // cout << string(100, '\n');
+    system("cls");
 }
 
 void fillCoffeeMachineWithGlasses(int &glassesLeft)
