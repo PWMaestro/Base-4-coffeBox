@@ -437,7 +437,6 @@ bool isAccessAllowed()
 
     for (int i = 0; i < MAX_PIN_INPUT_ATTEMPTS; i++)
     {
-        cout << "You have " << MAX_PIN_INPUT_ATTEMPTS - i << " attempts left." << endl;
         cout << "Please, enter a PIN number:";
         cin >> pin;
 
