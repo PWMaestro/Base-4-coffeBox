@@ -55,6 +55,7 @@ void showCoffeeIsPurchased();
 void showDefaultCashDeposit();
 void showDefaultGlasses();
 void showGlasses(const int &glassesCount);
+void showMoneyFromUser(double byn);
 void showProceeds(const double &cash);
 void showRowStars(int numberOfStars);
 void showWrongInputMessage();
@@ -220,6 +221,15 @@ void showDefaultGlasses()
     showRowStars(40);
     cout << "  " << setw(10) << "Sorry we don't have glasses! Please," << endl;
     cout << "  " << setw(20) << "call our manager: +375(29) 197-15-64" << endl;
+    showRowStars(40);
+    cout << endl;
+    cout << endl;
+}
+
+void showMoneyFromUser(double byn)
+{
+    showRowStars(40);
+    cout << " " << setw(30) << "You put in coffee machine " << byn << " BYN" << setw(5) << " " << endl;
     showRowStars(40);
     cout << endl;
     cout << endl;
@@ -564,11 +574,7 @@ void giveCoffeeToUser(double &userBalance, double price, int &glasses)
 
 void getMoneyFromUser(double &userBalance, double &cashBalance, double byn)
 {
-    showRowStars(40);
-    cout << " " << setw(30) << "You put in coffee machine " << byn << " BYN" << setw(5) << " " << endl;
-    showRowStars(40);
-    cout << endl;
-    cout << endl;
+    showMoneyFromUser(byn);
 
     userBalance += byn;
     cashBalance += byn;
