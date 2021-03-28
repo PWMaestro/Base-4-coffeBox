@@ -85,7 +85,6 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance)
         int choiceOption = 0;
 
         showMainMenu(userBalance);
-        checkGlasses(glasses);
 
         cout << "Please choice number: ";
         cin >> choiceOption;
@@ -413,8 +412,12 @@ int checkGlasses(int &avaliableGlasses)
 {
     if (avaliableGlasses == 0)
     {
-        cout << "Sorry we don't have glasses" << endl;
-        cout << "Please, call our manager" << endl;
+        showRowStars(40);
+        cout << "  " << setw(10) << "Sorry we don't have glasses! Please," << endl;
+        cout << "  " << setw(20) << "call our manager: +375(29) 197-15-64" << endl;
+        showRowStars(40);
+        cout << endl;
+        cout << endl;
 
         return 0;
     }
