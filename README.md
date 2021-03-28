@@ -6,7 +6,8 @@ The main idea of the project is to develop menu control system for coffee machin
 
 ## ToDo
 - **Interface**
-  + [x] изменить ширину имеющегося на 64 символа.
+  + [x] change the menu width by 64 characters.  
+  *We decided to make width up to 40 symbols.*
   + [x] уменьшить уже имеющееся количество надписей Byn во всевозможных меню.  
   + [x] в начале главного меню сразу отображать информацию об оставшихся стаканчиках и балансе пользователя.  
   + [x] Надо убрать предупреждение о малом количестве стаканов.  
