@@ -38,7 +38,6 @@ void getMoneyFromUser(double &userBalance, double &cashBalance, double byn);
 void giveCoffeeToUser(double &userBalance, double price, int &glasses);
 void giveOutProceeds(double &avaliableCash);
 void fillCoffeeMachineWithGlasses(int &glassesLeft);
-void removeGlass(int &glasses);
 
 void showCashDepositMenu();
 void showMainMenu(double &userBalance, int &glasses);
@@ -451,11 +450,6 @@ bool isAccessAllowed()
     return false;
 }
 
-void removeGlass(int &glasses)
-{
-    glasses--;
-}
-
 int checkGlasses(int &avaliableGlasses)
 {
     if (avaliableGlasses == 0)
@@ -568,11 +562,11 @@ void giveCoffeeToUser(double &userBalance, double price, int &glasses)
         if (isMoneyEnough(userBalance, price))
         {
             addSugar();
-            removeGlass(glasses);
 
             showCoffeeIsPurchased();
 
             userBalance -= price;
+            glasses--;
         }
         else
         {
