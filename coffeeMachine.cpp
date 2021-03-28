@@ -446,12 +446,6 @@ int checkGlasses(int &avaliableGlasses)
         showDefaultGlasses();
         return 0;
     }
-    else if (avaliableGlasses < 9)
-    {
-        cout << "Oh! There are only " << avaliableGlasses << " glasses left." << endl;
-
-        return avaliableGlasses;
-    }
     else
     {
         return avaliableGlasses;
