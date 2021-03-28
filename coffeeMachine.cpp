@@ -493,12 +493,11 @@ int addSugar()
 {
     int sugar = 0;
 
-    showRowStars(40);
-    cout << "*" << setw(32) << "Would you like to add sugar?" << setw(7) << "*" << endl;
-    showRowStars(40);
-
     while (true)
     {
+        showRowStars(40);
+        cout << "*" << setw(32) << "Would you like to add sugar?" << setw(7) << "*" << endl;
+        showRowStars(40);
         cout << "*" << setw(12) << " Yes " << setw(2) << "1" << setw(12) << "No " << setw(2) << "0" << setw(11) << "*" << endl;
         showRowStars(40);
         cout << "Please choice option: ";
@@ -517,6 +516,7 @@ int addSugar()
 
         default:
             showWrongInputMessage();
+            cout << endl;
             break;
         }
     }
@@ -529,33 +529,32 @@ int adjustPortionSize()
 
     while (true)
     {
-        cout << "Current portion size is " << currentPortionSize << "." << endl;
-        cout << "Press 0 to decrease" << endl;
-        cout << "Press 1 to increase" << endl;
-        cout << "Press 2 to confirm" << endl;
-
+        showRowStars(40);
+        cout << "*" << setw(30) << "Current portion size is " << currentPortionSize << setw(8) << "*" << endl;
+        showRowStars(40);
+        cout << "*" << setw(10) << "Confirm " << setw(1) << "0" << setw(12)
+             << "Increase " << setw(1) << "1" << setw(12)
+             << "Decrease " << setw(1) << "2" << setw(2) << "*" << endl;
+        showRowStars(40);
+        cout << "Please choice option: ";
         cin >> chosenOption;
+        cout << endl;
 
         clearScreen();
 
         switch (chosenOption)
         {
         case 0:
-            if (currentPortionSize <= 0)
-            {
-                cout << "Can't decrease sugar portion!" << endl;
-                cout << "You chose zero sugar portion!" << endl;
-            }
-            else
-            {
-                currentPortionSize--;
-            }
-            break;
+            return currentPortionSize;
         case 1:
             if (currentPortionSize >= 8)
             {
-                cout << "Can't increase sugar portion!" << endl;
-                cout << "You chose maximum sugar portion!" << endl;
+                showRowStars(40);
+                cout << " " << setw(36) << "Sorry, can't increase sugar portion!" << endl;
+                cout << "" << setw(25) << "It's maximum" << endl;
+                showRowStars(40);
+                cout << endl;
+                cout << endl;
             }
             else
             {
@@ -563,11 +562,23 @@ int adjustPortionSize()
             }
             break;
         case 2:
-            return currentPortionSize;
+            if (currentPortionSize <= 0)
+            {
+                showRowStars(40);
+                cout << " " << setw(36) << "Sorry, can't decrease sugar portion!" << endl;
+                cout << "" << setw(25) << "It's minimum" << endl;
+                showRowStars(40);
+                cout << endl;
+                cout << endl;
+            }
+            else
+            {
+                currentPortionSize--;
+            }
             break;
-
         default:
             showWrongInputMessage();
+            cout << endl;
             break;
         }
     }
