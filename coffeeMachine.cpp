@@ -54,7 +54,7 @@ void showGlasses(const int &glassesCount);
 void fillCoffeeMachineWithGlasses(int &glassesLeft);
 
 void showDefaultCashDeposit();
-
+void showCoffeeIsPurchased();
 void showWrongInputMessage();
 
 void clearScreen();
@@ -194,6 +194,15 @@ void showCashDepositInMainMenu()
 {
     cout << "*" << setw(24) << "4. Cash deposit" << setw(15) << "*" << endl;
     showRowStars(40);
+}
+
+void showCoffeeIsPurchased()
+{
+    showRowStars(40);
+    cout << "  " << setw(30) << "Take your coffee, please!" << endl;
+    showRowStars(40);
+    cout << endl;
+    cout << endl;
 }
 
 void showMarkaCoffeeMachineInMainMenu()
@@ -550,11 +559,7 @@ void giveCoffeeToUser(double &userBalance, double price, int &glasses)
             addSugar();
             removeGlass(glasses);
 
-            showRowStars(40);
-            cout << "  " << setw(30) << "Take your coffee, please!" << endl;
-            showRowStars(40);
-            cout << endl;
-            cout << endl;
+            showCoffeeIsPurchased();
 
             userBalance -= price;
         }
