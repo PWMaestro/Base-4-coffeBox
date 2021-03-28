@@ -14,9 +14,9 @@ The main idea of the project is to develop menu control system for coffee machin
   + [x] В сервисном меню можно сразу же отображать информацию об всей наличности в аппарате и количестве оставшихся стаканчиков.
   + [x] Изменить сообщение, которое выдаёт программа в результате неверного ввода PIN-кода более 3х раз. Примерное содержание: "Автомат заблокирован. Причина: слишком много попыток ввода пароля. Для снятия блокировки свяжитесь с нашим менеджером по тел.: +375 (29) 197-15-64".
   + [ ] Refactor menu with sugar adding. To make better UI.
-  + [ ] Refactor service menu: delete "show left glasses" option & "show available proceeds" option.
-  + [ ] Refactor service menu: delete . after BYN;
-  + [ ] Service menu -> "add glasses" option -> write message with more details, why we can't fill our coffee machine with more than 700 glasses.
+  + [x] Refactor service menu: delete "show left glasses" option & "show available proceeds" option.
+  + [x] Refactor service menu: delete . after BYN;
+  + [x] Service menu -> "add glasses" option -> write message with more details, why we can't fill our coffee machine with more than 700 glasses.
 - **Program logic**
   + [x] слишном высокие цены - уменьшить. 
   + [x] В меню с ценами выровнять цены в аккуратный столбик.

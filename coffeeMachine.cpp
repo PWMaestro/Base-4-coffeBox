@@ -6,7 +6,7 @@
 #define PIN 4689 // PIN just for test
 #define MAX_PIN_INPUT_ATTEMPTS 3
 
-#define MAX_NUMBER_OF_GLASSES 700
+#define GLASSES_CAPACITY 700
 
 #define PRICE_CAPPUCCINO 2
 #define PRICE_ESPRESSO 2.5
@@ -351,15 +351,9 @@ int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &user
             usersCurrentBalance = 0;
             return 0;
         case 1:
-            showProceeds(allowedCash);
-            break;
-        case 2:
             giveOutProceeds(allowedCash);
             break;
-        case 3:
-            showGlasses(currentGlassesNumber);
-            break;
-        case 4:
+        case 2:
             fillCoffeeMachineWithGlasses(currentGlassesNumber);
             break;
 
@@ -374,14 +368,12 @@ void showServiceMenu(int &currentGlassesNumber, double &allowedCash)
 {
     cout << endl
          << "Service menu" << endl;
-    cout << "--------------------" << endl;
+    showRowStars(40);
     cout << "Glasses left: " << currentGlassesNumber << endl;
-    cout << "Cash balance: " << allowedCash << " BYN." << endl;
-    cout << "--------------------" << endl;
-    cout << "1. Show avaliable revenue" << endl;
-    cout << "2. To issue proceeds" << endl;
-    cout << "3. Show remaining glasses" << endl;
-    cout << "4. Take glasses" << endl;
+    cout << "Cash balance: " << allowedCash << " BYN" << endl;
+    showRowStars(40);
+    cout << "1. Issue proceeds" << endl;
+    cout << "2. Load the glasses" << endl;
     cout << "0. Exit" << endl;
 }
 
@@ -410,6 +402,7 @@ void giveOutProceeds(double &avaliableCash)
  * GENERAL FUNCTIONS
  * 
 ******************************************************************************/
+
 void clearScreen()
 {
     system("cls");
@@ -418,16 +411,30 @@ void clearScreen()
 void fillCoffeeMachineWithGlasses(int &glassesLeft)
 {
     int newGlasses = 0,
-        totalGlasses = glassesLeft;
+        totalGlasses = glassesLeft,
+        leftCapacity = GLASSES_CAPACITY - glassesLeft;
+
 
     cout << "How many glasses you want insert? ";
     cin >> newGlasses;
 
     totalGlasses += newGlasses;
 
-    if (totalGlasses > MAX_NUMBER_OF_GLASSES)
+    if (newGlasses <= 0)
     {
-        cout << "Too much glasses! Try to insert less." << endl;
+        cout << "Are you kidding me?!" << endl;
+    }
+    else if (totalGlasses > GLASSES_CAPACITY)
+    {
+        cout << "Too much glasses!";
+        if (leftCapacity)
+        {
+            cout << "Try to insert less. You can only load " << leftCapacity << " glasses." << endl;
+        }
+        else
+        {
+            cout << "You can't load any glasses. Container is full.";
+        }
     }
     else
     {
