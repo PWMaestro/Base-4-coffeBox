@@ -462,10 +462,8 @@ int addSugar()
         switch (sugar)
         {
         case 0:
-            cout << "No" << endl;
             return 0;
         case 1:
-            cout << "Yes" << endl;
             adjustPortionSize();
             return 0;
 
@@ -517,7 +515,6 @@ int adjustPortionSize()
             }
             break;
         case 2:
-            cout << "Adding " << currentPortionSize << " sugar portion..." << endl;
             return currentPortionSize;
             break;
 
