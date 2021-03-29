@@ -143,16 +143,16 @@ void showMainMenu(double &userBalance, int &glasses)
     showLogo();
     showSymbolsRowWithMessage("MAIN MENU");
     // cout << "*" << setw(23) << "MAIN MENU" << setw(16) << "*" << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << "" << setw(25) << "Cash balance: " << userBalance << " BYN" << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << "" << setw(30) << "Number of glasses: " << setw(1) << glasses << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
     showCoffeeList();
     cout << "*" << setw(24) << "4. Cash deposit" << setw(15) << "*" << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << "*" << setw(19) << "5. Service" << setw(20) << "*" << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
 }
 
 void showLogo()
@@ -167,61 +167,61 @@ void showLogo()
 void showCoffeeList()
 {
     showSymbolsRowWithMessage("Select Coffee");
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << "*" << setw(22) << "1. Cappuccino" << setw(5) << PRICE_CAPPUCCINO << setw(12) << "*" << endl;
     cout << "*" << setw(20) << "2. Espresso" << setw(7) << PRICE_ESPRESSO << setw(12) << "*" << endl;
     cout << "*" << setw(17) << "3. Latte" << setw(10) << PRICE_LATTE << setw(12) << "*" << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
 }
 
 void showCashDepositMenu()
 {
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << "*" << setw(29) << "CASH DEPOSIT (BYN)" << setw(10) << "*" << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << "*" << setw(10) << "1. " << BYN_BILL_05 << setw(15) << "2. " << setw(3) << BYN_BILL_1 << setw(8) << "*" << endl;
     cout << "*" << setw(10) << "3. " << setw(3) << BYN_BILL_2 << setw(15) << "4. " << setw(3) << BYN_BILL_5 << setw(8) << "*" << endl;
     cout << "*" << setw(10) << "5. " << setw(3) << BYN_BILL_10 << setw(15) << "6. " << setw(3) << BYN_BILL_20 << setw(8) << "*" << endl;
     cout << "*" << setw(10) << "7. " << setw(3) << BYN_BILL_50 << setw(15) << "8. " << BYN_BILL_100 << setw(8) << "*" << endl;
     cout << "*" << setw(10) << "9. " << BYN_BILL_200 << setw(15) << "10. " << BYN_BILL_500 << setw(8) << "*" << endl;
     cout << "*" << setw(22) << " 0. EXIT" << setw(17) << "*" << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
 }
 
 void showCoffeeIsPurchased()
 {
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << "  " << setw(30) << "Take your coffee, please!" << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << endl;
     cout << endl;
 }
 
 void showNotEnoughMoneyWarning()
 {
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << "  " << setw(5) << "Sorry, you don't have enough money!" << endl;
     cout << " " << setw(5) << "You need to put cash in coffee machine" << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << endl;
     cout << endl;
 }
 
 void showNoGlassesWarning()
 {
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << "  " << setw(10) << "Sorry we don't have glasses! Please," << endl;
     cout << "  " << setw(10) << "call our manager: " << MANAGER_CONTACTS << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << endl;
     cout << endl;
 }
 
 void showMoneyFromUser(double byn)
 {
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << " " << setw(30) << "You put in coffee machine " << byn << " BYN" << setw(5) << " " << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << endl;
     cout << endl;
 }
@@ -267,9 +267,9 @@ void showSymbolsRowWithMessage(string message, int length /*= STANDART_ROW_LENGT
 
 void showWrongInputMessage()
 {
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << " " << setw(32) << "Wrong input! Try again..." << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << endl;
     cout << endl;
 }
@@ -374,10 +374,10 @@ void showServiceMenu(int &currentGlassesNumber, double &allowedCash)
 {
     cout << endl
          << "Service menu" << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << "Glasses left: " << currentGlassesNumber << endl;
     cout << "Cash balance: " << allowedCash << " BYN" << endl;
-    showSymbolsRow(40);
+    showSymbolsRow();
     cout << "1. Issue proceeds" << endl;
     cout << "2. Load the glasses" << endl;
     cout << "0. Exit" << endl;
@@ -484,14 +484,7 @@ int checkGlasses(int &avaliableGlasses)
 
 bool isMoneyEnough(double &currentBalance, double &itemPrice)
 {
-    if (currentBalance >= itemPrice)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return currentBalance >= itemPrice ? true : false;
 }
 
 int addSugar()
@@ -500,11 +493,11 @@ int addSugar()
 
     while (true)
     {
-        showSymbolsRow(40);
+        showSymbolsRow();
         cout << "*" << setw(32) << "Would you like to add sugar?" << setw(7) << "*" << endl;
-        showSymbolsRow(40);
+        showSymbolsRow();
         cout << "*" << setw(12) << " Yes " << setw(2) << "1" << setw(12) << "No " << setw(2) << "0" << setw(11) << "*" << endl;
-        showSymbolsRow(40);
+        showSymbolsRow();
         cout << "Please choice option: ";
         cin >> choiceOption;
         cout << endl;
@@ -534,13 +527,13 @@ int adjustPortionSize()
 
     while (true)
     {
-        showSymbolsRow(40);
+        showSymbolsRow();
         cout << "*" << setw(30) << "Current portion size is " << currentPortionSize << setw(8) << "*" << endl;
-        showSymbolsRow(40);
+        showSymbolsRow();
         cout << "*" << setw(10) << "Confirm " << setw(1) << "0" << setw(12)
              << "Increase " << setw(1) << "1" << setw(12)
              << "Decrease " << setw(1) << "2" << setw(2) << "*" << endl;
-        showSymbolsRow(40);
+        showSymbolsRow();
         cout << "Please choice option: ";
         cin >> choiceOption;
         cout << endl;
@@ -554,10 +547,10 @@ int adjustPortionSize()
         case 1:
             if (currentPortionSize >= 8)
             {
-                showSymbolsRow(40);
+                showSymbolsRow();
                 cout << " " << setw(36) << "Sorry, can't increase sugar portion!" << endl;
                 cout << "" << setw(25) << "It's maximum" << endl;
-                showSymbolsRow(40);
+                showSymbolsRow();
                 cout << endl;
                 cout << endl;
             }
@@ -569,10 +562,10 @@ int adjustPortionSize()
         case 2:
             if (currentPortionSize <= 0)
             {
-                showSymbolsRow(40);
+                showSymbolsRow();
                 cout << " " << setw(36) << "Sorry, can't decrease sugar portion!" << endl;
                 cout << "" << setw(25) << "It's minimum" << endl;
-                showSymbolsRow(40);
+                showSymbolsRow();
                 cout << endl;
                 cout << endl;
             }
