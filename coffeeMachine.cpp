@@ -445,7 +445,7 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft)
         }
         else
         {
-            cout << "You can't load any glasses. Container is full.";
+            cout << "You can't load any glasses. Container is full." << endl;
         }
     }
     else
