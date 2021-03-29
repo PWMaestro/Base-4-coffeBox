@@ -3,7 +3,7 @@
 #include <string>
 #include <iomanip>
 
-#define PIN 4689 // PIN just for test
+#define PIN 7878
 #define MAX_PIN_INPUT_ATTEMPTS 3
 
 #define GLASSES_CAPACITY 700
