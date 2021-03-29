@@ -148,9 +148,9 @@ void showMainMenu(double &userBalance, int &glasses)
     cout << "" << setw(30) << "Number of glasses: " << setw(1) << glasses << endl;
     showSymbolsRow();
     showCoffeeList();
-    showSymbolsRowWithMessage("4. Cash deposit");
+    cout << "*" << setw(24) << "4. Cash deposit" << setw(15) << "*" << endl;
     showSymbolsRow();
-    showSymbolsRowWithMessage("5. Service");
+    cout << "*" << setw(19) << "5. Service" << setw(20) << "*" << endl;
     showSymbolsRow();
 }
 
@@ -176,7 +176,7 @@ void showCoffeeList()
 void showCashDepositMenu()
 {
     showSymbolsRow();
-    showSymbolsRowWithMessage("CASH DEPOSIT (BYN)");
+    cout << "*" << setw(29) << "CASH DEPOSIT (BYN)" << setw(10) << "*" << endl;
     showSymbolsRow();
     cout << "*" << setw(10) << "1. " << BYN_BILL_05 << setw(15) << "2. " << setw(3) << BYN_BILL_1 << setw(8) << "*" << endl;
     cout << "*" << setw(10) << "3. " << setw(3) << BYN_BILL_2 << setw(15) << "4. " << setw(3) << BYN_BILL_5 << setw(8) << "*" << endl;
@@ -418,6 +418,7 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft)
     int newGlasses = 0,
         totalGlasses = glassesLeft,
         leftCapacity = GLASSES_CAPACITY - glassesLeft;
+
 
     cout << "How many glasses you want insert? ";
     cin >> newGlasses;
