@@ -565,7 +565,16 @@ int adjustPortionSize()
     while (true)
     {
         showSymbolsRow();
-        showSymbolsRowWithMessage("Current portion size is " + to_string(currentPortionSize));
+        cout << setw(14);
+        for (int i = 0; i < currentPortionSize; i++)
+        {
+            cout << char(219) << ' ';
+        }
+        for (int i = 0; i < 8 - currentPortionSize; i++)
+        {
+            cout << char(176) << ' ';
+        }
+        cout << endl;
         showSymbolsRow();
         showSymbolsRowWithMessage("Confirm   0");
         showSymbolsRowWithMessage("Increase  1");
