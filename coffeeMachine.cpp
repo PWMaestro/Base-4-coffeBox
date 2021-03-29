@@ -8,9 +8,9 @@
 
 #define GLASSES_CAPACITY 700
 
-#define PRICE_CAPPUCCINO 2.0
+#define PRICE_CAPPUCCINO 2
 #define PRICE_ESPRESSO 2.5
-#define PRICE_LATTE 3.0
+#define PRICE_LATTE 3
 
 #define BYN_BILL_05 0.5
 #define BYN_BILL_1 1
@@ -142,24 +142,25 @@ void showMainMenu(double &userBalance, int &glasses)
 {
     showLogo();
     showSymbolsRowWithMessage("MAIN MENU");
+    // cout << "*" << setw(23) << "MAIN MENU" << setw(16) << "*" << endl;
     showSymbolsRow();
     cout << "" << setw(25) << "Cash balance: " << userBalance << " BYN" << endl;
     showSymbolsRow();
     cout << "" << setw(30) << "Number of glasses: " << setw(1) << glasses << endl;
     showSymbolsRow();
     showCoffeeList();
-    showSymbolsRowWithMessage("4. Cash deposit  ");
+    cout << "*" << setw(24) << "4. Cash deposit" << setw(15) << "*" << endl;
     showSymbolsRow();
-    showSymbolsRowWithMessage("5. Service       ");
+    cout << "*" << setw(19) << "5. Service" << setw(20) << "*" << endl;
     showSymbolsRow();
 }
 
 void showLogo()
 {
     showSymbolsRow();
-    cout << endl;
+    showSymbolsRow();
     showSymbolsRowWithMessage("ESPRESSO BIANCCI");
-    cout << endl;
+    showSymbolsRow();
     showSymbolsRow();
 }
 
@@ -167,16 +168,16 @@ void showCoffeeList()
 {
     showSymbolsRowWithMessage("Select Coffee");
     showSymbolsRow();
-    showSymbolsRowWithMessage("1. Cappuccino   " + to_string(PRICE_CAPPUCCINO).erase(3));
-    showSymbolsRowWithMessage("2. Espresso     " + to_string(PRICE_ESPRESSO).erase(3));
-    showSymbolsRowWithMessage("3. Latte        " + to_string(PRICE_LATTE).erase(3));
+    cout << "*" << setw(22) << "1. Cappuccino" << setw(5) << PRICE_CAPPUCCINO << setw(12) << "*" << endl;
+    cout << "*" << setw(20) << "2. Espresso" << setw(7) << PRICE_ESPRESSO << setw(12) << "*" << endl;
+    cout << "*" << setw(17) << "3. Latte" << setw(10) << PRICE_LATTE << setw(12) << "*" << endl;
     showSymbolsRow();
 }
 
 void showCashDepositMenu()
 {
     showSymbolsRow();
-    showSymbolsRowWithMessage("CASH DEPOSIT (BYN)");
+    cout << "*" << setw(29) << "CASH DEPOSIT (BYN)" << setw(10) << "*" << endl;
     showSymbolsRow();
     cout << "*" << setw(10) << "1. " << BYN_BILL_05 << setw(15) << "2. " << setw(3) << BYN_BILL_1 << setw(8) << "*" << endl;
     cout << "*" << setw(10) << "3. " << setw(3) << BYN_BILL_2 << setw(15) << "4. " << setw(3) << BYN_BILL_5 << setw(8) << "*" << endl;
@@ -483,7 +484,14 @@ int checkGlasses(int &avaliableGlasses)
 
 bool isMoneyEnough(double &currentBalance, double &itemPrice)
 {
-    return currentBalance >= itemPrice ? true : false;
+    if (currentBalance >= itemPrice)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 int addSugar()
