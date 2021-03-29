@@ -291,8 +291,10 @@ int callCashDepositMenu(double &userBalance, double &cashBalance)
         showCashDepositMenu();
 
         cout << endl;
-        showSymbolsRowWithMessage("Please select how much money do you");
-        showSymbolsRowWithMessage("want to put in coffee machine:");
+        cout << "Please select how much money do you" << endl;
+        cout << "want to put in coffee machine:";
+        // showSymbolsRowWithMessage();
+        // showSymbolsRowWithMessage();
         cin >> choiceOption;
         cout << endl;
 
