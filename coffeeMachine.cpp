@@ -23,7 +23,7 @@
 #define BYN_BILL_200 200
 #define BYN_BILL_500 500
 
-#define MANAGER_CONTACTS "+375 (29) 197-15-64 "
+#define MANAGER_CONTACTS "+375 (29) 197-15-64"
 
 #define STANDART_ROW_LENGTH 40
 
@@ -197,7 +197,7 @@ void showCashDepositMenu()
 void showCoffeeIsPurchased()
 {
     showSymbolsRow();
-    cout << "  " << setw(30) << "Take your coffee, please!" << endl;
+    showSymbolsRowWithMessage("Take your coffee, please!");
     showSymbolsRow();
     cout << endl;
     cout << endl;
@@ -206,8 +206,9 @@ void showCoffeeIsPurchased()
 void showNotEnoughMoneyWarning()
 {
     showSymbolsRow();
-    cout << "  " << setw(5) << "Sorry, you don't have enough money!" << endl;
-    cout << " " << setw(5) << "You need to put cash in coffee machine" << endl;
+    showSymbolsRowWithMessage("Sorry, you don't have enough money!");
+    showSymbolsRowWithMessage("You need to put some cash");
+    showSymbolsRowWithMessage("in coffee machine.");
     showSymbolsRow();
     cout << endl;
     cout << endl;
@@ -216,8 +217,9 @@ void showNotEnoughMoneyWarning()
 void showNoGlassesWarning()
 {
     showSymbolsRow();
-    cout << "  " << setw(10) << "Sorry we don't have glasses! Please," << endl;
-    cout << "  " << setw(10) << "call our manager: " << MANAGER_CONTACTS << endl;
+    showSymbolsRowWithMessage("Sorry we don't have glasses! Please,");
+    showSymbolsRowWithMessage("call our manager:");
+    cout << MANAGER_CONTACTS << endl;
     showSymbolsRow();
     cout << endl;
     cout << endl;
@@ -274,7 +276,7 @@ void showSymbolsRowWithMessage(string message, int length /*= STANDART_ROW_LENGT
 void showWrongInputMessage()
 {
     showSymbolsRow();
-    cout << " " << setw(32) << "Wrong input! Try again..." << endl;
+    showSymbolsRowWithMessage("Wrong input! Try again...");
     showSymbolsRow();
     cout << endl;
     cout << endl;
@@ -289,8 +291,8 @@ int callCashDepositMenu(double &userBalance, double &cashBalance)
         showCashDepositMenu();
 
         cout << endl;
-        cout << " " << setw(20) << "Please select how much money do you" << endl;
-        cout << " " << setw(10) << "want to put in coffee machine: ";
+        showSymbolsRowWithMessage("Please select how much money do you");
+        showSymbolsRowWithMessage("want to put in coffee machine:");
         cin >> choiceOption;
         cout << endl;
 
