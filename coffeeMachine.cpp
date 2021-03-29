@@ -120,6 +120,7 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance, int &av
                 showSymbolsRowWithMessage("You canceled operation...");
                 showSymbolsRow();
                 cout << endl;
+                cout << endl;
                 break;
             case 1:
                 callServiceMenu(glasses, cashBalance, userBalance, avaliablePinInputAttempts);
