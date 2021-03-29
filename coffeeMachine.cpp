@@ -46,11 +46,8 @@ void showCashDepositMenu();
 void showMainMenu(double &userBalance, int &glasses);
 void showServiceMenu(int &currentGlassesNumber, double &allowedCash);
 
-void showCashDepositInMainMenu();
-void showLogoCoffeeMachineInMainMenu();
-void showNamingInMainMenu();
-void shownumberOfGlassesInMainMenu(int &glasses);
-void showSelectCoffeeInMainMenu();
+void showLogo();
+void showCoffeeList();
 void showServiceInMainMenu();
 void showUserBalanceInMainMenu(double &userBalance);
 
@@ -140,22 +137,21 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance, int &av
 
 void showMainMenu(double &userBalance, int &glasses)
 {
-    showLogoCoffeeMachineInMainMenu();
-    showNamingInMainMenu();
-    showUserBalanceInMainMenu(userBalance);
-    shownumberOfGlassesInMainMenu(glasses);
-    showSelectCoffeeInMainMenu();
-    showCashDepositInMainMenu();
-    showServiceInMainMenu();
-}
-
-void showCashDepositInMainMenu()
-{
+    showLogo();
+    cout << "*" << setw(23) << "MAIN MENU" << setw(16) << "*" << endl;
+    showRowStars(40);
+    cout << "" << setw(25) << "Cash balance: " << userBalance << " BYN" << endl;
+    showRowStars(40);
+    cout << "" << setw(30) << "Number of glasses: " << setw(1) << glasses << endl;
+    showRowStars(40);
+    showCoffeeList();
     cout << "*" << setw(24) << "4. Cash deposit" << setw(15) << "*" << endl;
+    showRowStars(40);
+    cout << "*" << setw(19) << "5. Service" << setw(20) << "*" << endl;
     showRowStars(40);
 }
 
-void showLogoCoffeeMachineInMainMenu()
+void showLogo()
 {
     showRowStars(40);
     showRowStars(40);
@@ -164,37 +160,13 @@ void showLogoCoffeeMachineInMainMenu()
     showRowStars(40);
 }
 
-void showNamingInMainMenu()
-{
-    cout << "*" << setw(23) << "MAIN MENU" << setw(16) << "*" << endl;
-    showRowStars(40);
-}
-
-void shownumberOfGlassesInMainMenu(int &glasses)
-{
-    cout << "" << setw(30) << "Number of glasses: " << setw(1) << glasses << endl;
-    showRowStars(40);
-}
-
-void showSelectCoffeeInMainMenu()
+void showCoffeeList()
 {
     cout << "*" << setw(25) << "Select Coffee" << setw(14) << "*" << endl;
     showRowStars(40);
     cout << "*" << setw(22) << "1. Cappuccino" << setw(5) << PRICE_CAPPUCCINO << setw(12) << "*" << endl;
     cout << "*" << setw(20) << "2. Espresso" << setw(7) << PRICE_ESPRESSO << setw(12) << "*" << endl;
     cout << "*" << setw(17) << "3. Latte" << setw(10) << PRICE_LATTE << setw(12) << "*" << endl;
-    showRowStars(40);
-}
-
-void showServiceInMainMenu()
-{
-    cout << "*" << setw(19) << "5. Service" << setw(20) << "*" << endl;
-    showRowStars(40);
-}
-
-void showUserBalanceInMainMenu(double &userBalance)
-{
-    cout << "" << setw(25) << "Cash balance: " << userBalance << " BYN" << endl;
     showRowStars(40);
 }
 
@@ -235,7 +207,7 @@ void showDefaultGlasses()
 {
     showRowStars(40);
     cout << "  " << setw(10) << "Sorry we don't have glasses! Please," << endl;
-    cout << "  " << setw(20) << "call our manager: +375(29) 197-15-64" << endl;
+    cout << "  " << setw(10) << "call our manager: " << MANAGER_CONTACTS << endl;
     showRowStars(40);
     cout << endl;
     cout << endl;
