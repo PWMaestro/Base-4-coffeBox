@@ -23,7 +23,7 @@
 #define BYN_BILL_200 200
 #define BYN_BILL_500 500
 
-#define MANAGER_CONTACTS "+375 (29) 197-15-64"
+#define MANAGER_CONTACTS "+375(29) 197-15-64"
 
 #define STANDART_ROW_LENGTH 40
 
@@ -116,7 +116,10 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance, int &av
             switch (checkAccess(avaliablePinInputAttempts))
             {
             case 0:
-                cout << "You canceled operation..." << endl;
+                showSymbolsRow();
+                showSymbolsRowWithMessage("You canceled operation...");
+                showSymbolsRow();
+                cout << endl;
                 break;
             case 1:
                 callServiceMenu(glasses, cashBalance, userBalance, avaliablePinInputAttempts);
@@ -218,8 +221,7 @@ void showNoGlassesWarning()
 {
     showSymbolsRow();
     showSymbolsRowWithMessage("Sorry we don't have glasses! Please,");
-    showSymbolsRowWithMessage("call our manager:");
-    cout << MANAGER_CONTACTS << endl;
+    showSymbolsRowWithMessage("call our manager: " MANAGER_CONTACTS);
     showSymbolsRow();
     cout << endl;
     cout << endl;
