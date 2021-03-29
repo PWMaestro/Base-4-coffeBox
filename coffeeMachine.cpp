@@ -403,12 +403,15 @@ void showGlasses(const int &glassesCount)
 
 void giveOutProceeds(double &avaliableCash)
 {
-    cout << "Opening the lock..." << endl;
-    cout << "Opened." << endl;
-
     avaliableCash = 0;
 
-    cout << "You successfully take out all proseeds." << endl;
+    showSymbolsRow();
+    showSymbolsRowWithMessage("Opening the lock...");
+    showSymbolsRowWithMessage("Opened.");
+    showSymbolsRowWithMessage("You successfully take out");
+    showSymbolsRowWithMessage("all proseeds.");
+    showSymbolsRow();
+    cout << endl << endl;
 }
 
 /******************************************************************************
@@ -430,30 +433,38 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft)
 
     cout << "How many glasses you want insert? ";
     cin >> newGlasses;
+    clearScreen();
+    showSymbolsRow();
 
     totalGlasses += newGlasses;
 
     if (newGlasses <= 0)
     {
-        cout << "Are you kidding me?!" << endl;
+        showSymbolsRowWithMessage("Are you kidding me?!");
     }
     else if (totalGlasses > GLASSES_CAPACITY)
     {
-        cout << "Too much glasses!";
+        showSymbolsRowWithMessage("Too much glasses!");
+
         if (leftCapacity)
         {
-            cout << "Try to insert less. You can only load " << leftCapacity << " glasses." << endl;
+            showSymbolsRowWithMessage("Try to insert less. You can only");
+            showSymbolsRowWithMessage("load " + to_string(leftCapacity) + " glasses");
         }
         else
         {
-            cout << "You can't load any glasses. Container is full.";
+            showSymbolsRowWithMessage("You can't load any glasses!");
+            showSymbolsRowWithMessage("Container is full.");
         }
     }
     else
     {
         glassesLeft = totalGlasses;
-        cout << "You successfully filled coffeeBox with " << newGlasses << " glasses." << endl;
+        showSymbolsRowWithMessage("You successfully filled coffeeBox");
+        showSymbolsRowWithMessage("with " + to_string(newGlasses) + " glasses.");
     }
+    showSymbolsRow();
+    cout << endl << endl;
 }
 
 int checkAccess(int &avaliablePinInputAttempts)
