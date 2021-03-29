@@ -116,7 +116,10 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance, int &av
             switch (checkAccess(avaliablePinInputAttempts))
             {
             case 0:
-                cout << "You canceled operation..." << endl;
+                showSymbolsRow();
+                showSymbolsRowWithMessage("You canceled operation...");
+                showSymbolsRow();
+                cout << endl;
                 break;
             case 1:
                 callServiceMenu(glasses, cashBalance, userBalance, avaliablePinInputAttempts);
