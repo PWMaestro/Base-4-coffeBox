@@ -163,7 +163,9 @@ void showHeader(string headerMessage)
 {
     showSymbolsRow();
     showSymbolsRow();
-    showSymbolsRowWithMessage("ESPRESSO BIANCCI");
+    cout << endl;
+    showSymbolsRowWithMessage(headerMessage);
+    cout << endl;
     showSymbolsRow();
     showSymbolsRow();
 }
