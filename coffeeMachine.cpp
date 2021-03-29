@@ -52,8 +52,8 @@ void showServiceInMainMenu();
 void showUserBalanceInMainMenu(double &userBalance);
 
 void showCoffeeIsPurchased();
-void showDefaultCashDeposit();
-void showDefaultGlasses();
+void showNotEnoughMoneyWarning();
+void showNoGlassesWarning();
 void showGlasses(const int &glassesCount);
 void showMoneyFromUser(double byn);
 void showProceeds(const double &cash);
@@ -193,7 +193,7 @@ void showCoffeeIsPurchased()
     cout << endl;
 }
 
-void showDefaultCashDeposit()
+void showNotEnoughMoneyWarning()
 {
     showRowStars(40);
     cout << "  " << setw(5) << "Sorry, you don't have enough money!" << endl;
@@ -203,7 +203,7 @@ void showDefaultCashDeposit()
     cout << endl;
 }
 
-void showDefaultGlasses()
+void showNoGlassesWarning()
 {
     showRowStars(40);
     cout << "  " << setw(10) << "Sorry we don't have glasses! Please," << endl;
@@ -445,15 +445,7 @@ int checkAccess(int &avaliablePinInputAttempts)
 
 int checkGlasses(int &avaliableGlasses)
 {
-    if (avaliableGlasses == 0)
-    {
-        showDefaultGlasses();
-        return 0;
-    }
-    else
-    {
-        return avaliableGlasses;
-    }
+    return avaliableGlasses == 0 ? 0 : avaliableGlasses;
 }
 
 bool isMoneyEnough(double &currentBalance, double &itemPrice)
@@ -578,8 +570,12 @@ void giveCoffeeToUser(double &userBalance, double price, int &glasses)
         }
         else
         {
-            showDefaultCashDeposit();
+            showNotEnoughMoneyWarning();
         }
+    }
+    else
+    {
+        showNoGlassesWarning();
     }
 }
 
