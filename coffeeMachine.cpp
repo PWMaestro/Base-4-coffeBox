@@ -163,7 +163,7 @@ void showHeader(string headerMessage)
 {
     showSymbolsRow();
     showSymbolsRow();
-    showSymbolsRowWithMessage("ESPRESSO BIANCCI");
+    showSymbolsRowWithMessage(headerMessage);
     showSymbolsRow();
     showSymbolsRow();
 }
