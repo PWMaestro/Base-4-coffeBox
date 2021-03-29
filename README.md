@@ -15,7 +15,7 @@ The main idea of the project is to develop menu control system for coffee machin
   + [x] Изменить сообщение, которое выдаёт программа в результате неверного ввода PIN-кода более 3х раз. Примерное содержание: "Автомат заблокирован. Причина: слишком много попыток ввода пароля. Для снятия блокировки свяжитесь с нашим менеджером по тел.: +375 (29) 197-15-64".
   + [ ] Refactor menu with sugar adding. To make better UI.
   + [x] Refactor service menu: delete . after BYN;
-  + [ ] Add attractive UI for service menu;
+  + [x] Add attractive UI for service menu;
 - **Program logic**
   + [x] слишном высокие цены - уменьшить. 
   + [x] В меню с ценами выровнять цены в аккуратный столбик.
