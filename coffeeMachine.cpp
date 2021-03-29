@@ -23,7 +23,7 @@
 #define BYN_BILL_200 200
 #define BYN_BILL_500 500
 
-#define MANAGER_CONTACTS "+375 (29) 197-15-64"
+#define MANAGER_CONTACTS "+375(29) 197-15-64"
 
 #define STANDART_ROW_LENGTH 40
 
@@ -218,8 +218,7 @@ void showNoGlassesWarning()
 {
     showSymbolsRow();
     showSymbolsRowWithMessage("Sorry we don't have glasses! Please,");
-    showSymbolsRowWithMessage("call our manager:");
-    cout << MANAGER_CONTACTS << endl;
+    showSymbolsRowWithMessage("call our manager: "  MANAGER_CONTACTS);
     showSymbolsRow();
     cout << endl;
     cout << endl;
@@ -291,8 +290,8 @@ int callCashDepositMenu(double &userBalance, double &cashBalance)
         showCashDepositMenu();
 
         cout << endl;
-        cout << "Please select how much money do you" << endl;
-        cout << "want to put in coffee machine:";
+        showSymbolsRowWithMessage("Please select how much money do you");
+        showSymbolsRowWithMessage("want to put in coffee machine:");
         cin >> choiceOption;
         cout << endl;
 
