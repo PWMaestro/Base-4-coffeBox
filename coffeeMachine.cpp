@@ -163,9 +163,7 @@ void showHeader(string headerMessage)
 {
     showSymbolsRow();
     showSymbolsRow();
-    cout << endl;
-    showSymbolsRowWithMessage(headerMessage);
-    cout << endl;
+    showSymbolsRowWithMessage("ESPRESSO BIANCCI");
     showSymbolsRow();
     showSymbolsRow();
 }
@@ -428,7 +426,6 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft)
         totalGlasses = glassesLeft,
         leftCapacity = GLASSES_CAPACITY - glassesLeft;
 
-
     cout << "How many glasses you want insert? ";
     cin >> newGlasses;
 
@@ -447,7 +444,7 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft)
         }
         else
         {
-            cout << "You can't load any glasses. Container is full." << endl;
+            cout << "You can't load any glasses. Container is full.";
         }
     }
     else
@@ -479,7 +476,10 @@ int checkAccess(int &avaliablePinInputAttempts)
         else
         {
             avaliablePinInputAttempts--;
-            cout << "Wrong PIN number!" << endl;
+            showSymbolsRow();
+            showSymbolsRowWithMessage("Wrong PIN number!");
+            showSymbolsRow();
+            cout << endl;
         }
     }
     return -1;
