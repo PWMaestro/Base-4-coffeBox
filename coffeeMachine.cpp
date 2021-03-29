@@ -157,11 +157,11 @@ void showMainMenu(double &userBalance, int &glasses)
 
 void showLogo()
 {
-    showSymbolsRow(40);
-    showSymbolsRow(40);
+    showSymbolsRow();
+    cout << endl;
     showSymbolsRowWithMessage("ESPRESSO BIANCCI");
-    showSymbolsRow(40);
-    showSymbolsRow(40);
+    cout << endl;
+    showSymbolsRow();
 }
 
 void showCoffeeList()
