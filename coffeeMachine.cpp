@@ -49,6 +49,7 @@ void showMainMenu(double &userBalance, int &glasses);
 void showServiceMenu(int &currentGlassesNumber, double &allowedCash);
 
 void showLogo();
+void showHeader(string headerMessage);
 void showCoffeeList();
 void showServiceInMainMenu();
 void showUserBalanceInMainMenu(double &userBalance);
@@ -156,9 +157,14 @@ void showMainMenu(double &userBalance, int &glasses)
 
 void showLogo()
 {
+    showHeader("ESPRESSO BIANCCI");
+}
+
+void showHeader(string headerMessage)
+{
     showSymbolsRow();
     cout << endl;
-    showSymbolsRowWithMessage("ESPRESSO BIANCCI");
+    showSymbolsRowWithMessage(headerMessage);
     cout << endl;
     showSymbolsRow();
 }
@@ -371,11 +377,7 @@ int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &user
 
 void showServiceMenu(int &currentGlassesNumber, double &allowedCash)
 {
-    showSymbolsRow();
-    cout << endl;
-    showSymbolsRowWithMessage("Service menu");
-    cout << endl;
-    showSymbolsRow();
+    showHeader("Service menu");
     cout << "" << setw(25) << "Cash balance: " << allowedCash << " BYN" << endl;
     showSymbolsRow();
     cout << "" << setw(25) << "Glasses left: " << currentGlassesNumber << endl;
