@@ -189,7 +189,7 @@ void showCoffeeList()
 void showCashDepositMenu()
 {
     showSymbolsRow();
-    cout << "*" << setw(29) << "CASH DEPOSIT (BYN)" << setw(10) << "*" << endl;
+    showSymbolsRowWithMessage("CASH DEPOSIT (BYN)");
     showSymbolsRow();
     cout << "*" << setw(10) << "1. " << BYN_BILL_05 << setw(15) << "2. " << setw(3) << BYN_BILL_1 << setw(8) << "*" << endl;
     cout << "*" << setw(10) << "3. " << setw(3) << BYN_BILL_2 << setw(15) << "4. " << setw(3) << BYN_BILL_5 << setw(8) << "*" << endl;
@@ -297,7 +297,7 @@ int callCashDepositMenu(double &userBalance, double &cashBalance)
 
         cout << endl;
         cout << "Please select how much money do you" << endl;
-        cout << "want to put in coffee machine:";
+        cout << "want to put in coffee machine: ";
         cin >> choiceOption;
         cout << endl;
 
@@ -416,7 +416,8 @@ void giveOutProceeds(double &avaliableCash)
     showSymbolsRowWithMessage("You successfully take out");
     showSymbolsRowWithMessage("all proseeds.");
     showSymbolsRow();
-    cout << endl << endl;
+    cout << endl
+         << endl;
 }
 
 /******************************************************************************
@@ -469,7 +470,8 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft)
         showSymbolsRowWithMessage("with " + to_string(newGlasses) + " glasses.");
     }
     showSymbolsRow();
-    cout << endl << endl;
+    cout << endl
+         << endl;
 }
 
 int checkAccess(int &avaliablePinInputAttempts)
@@ -478,7 +480,8 @@ int checkAccess(int &avaliablePinInputAttempts)
 
     while (avaliablePinInputAttempts > 0)
     {
-        cout << "Please, enter a PIN number or press 0 to exit:";
+        cout << "Please, enter a PIN number" << endl;
+        cout << "or press 0 to exit: ";
         cin >> userInput;
 
         clearScreen();
