@@ -163,7 +163,9 @@ void showHeader(string headerMessage)
 {
     showSymbolsRow();
     showSymbolsRow();
+    cout << endl;
     showSymbolsRowWithMessage(headerMessage);
+    cout << endl;
     showSymbolsRow();
     showSymbolsRow();
 }
