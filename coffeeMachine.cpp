@@ -126,10 +126,13 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance, int &av
                 break;
             case -1:
                 cout << endl;
-                cout << "The coffee machine is blocked!" << endl;
-                cout << "Reason: too many PIN input attempts." << endl;
-                cout << "Please, call our manager to unlock:" << endl;
-                cout << MANAGER_CONTACTS << endl;
+                showSymbolsRow();
+                showSymbolsRowWithMessage("The coffee machine is blocked!");
+                showSymbolsRowWithMessage("Reason: too many PIN input attempts.");
+                showSymbolsRowWithMessage("Please, call our manager to unlock:");
+                showSymbolsRowWithMessage(MANAGER_CONTACTS);
+                showSymbolsRow();
+                cout << endl;
                 return 1;
             }
             break;
