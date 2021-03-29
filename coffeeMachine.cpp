@@ -371,15 +371,19 @@ int callServiceMenu(int &currentGlassesNumber, double &allowedCash, double &user
 
 void showServiceMenu(int &currentGlassesNumber, double &allowedCash)
 {
-    cout << endl
-         << "Service menu" << endl;
     showSymbolsRow();
-    cout << "Glasses left: " << currentGlassesNumber << endl;
-    cout << "Cash balance: " << allowedCash << " BYN" << endl;
+    cout << endl;
+    showSymbolsRowWithMessage("Service menu");
+    cout << endl;
     showSymbolsRow();
-    cout << "1. Issue proceeds" << endl;
-    cout << "2. Load the glasses" << endl;
-    cout << "0. Exit" << endl;
+    cout << "" << setw(25) << "Cash balance: " << allowedCash << " BYN" << endl;
+    showSymbolsRow();
+    cout << "" << setw(25) << "Glasses left: " << currentGlassesNumber << endl;
+    showSymbolsRow();
+    showSymbolsRowWithMessage("1. Issue proceeds  ");
+    showSymbolsRowWithMessage("2. Load the glasses");
+    showSymbolsRowWithMessage("0. Exit            ");
+    showSymbolsRow();
 }
 
 void showProceeds(const double &cash)
