@@ -126,7 +126,6 @@ int callMainMenu(int &glasses, double &userBalance, double &cashBalance, int &av
                 cout << "Reason: too many PIN input attempts." << endl;
                 cout << "Please, call our manager to unlock:" << endl;
                 cout << MANAGER_CONTACTS << endl;
-
                 return 1;
             }
             break;
