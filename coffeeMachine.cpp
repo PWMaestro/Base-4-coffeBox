@@ -418,7 +418,6 @@ void fillCoffeeMachineWithGlasses(int &glassesLeft)
         totalGlasses = glassesLeft,
         leftCapacity = GLASSES_CAPACITY - glassesLeft;
 
-
     cout << "How many glasses you want insert? ";
     cin >> newGlasses;
 
@@ -469,7 +468,10 @@ int checkAccess(int &avaliablePinInputAttempts)
         else
         {
             avaliablePinInputAttempts--;
-            cout << "Wrong PIN number!" << endl;
+            showSymbolsRow();
+            showSymbolsRowWithMessage("Wrong PIN number!");
+            showSymbolsRow();
+            cout << endl;
         }
     }
     return -1;
@@ -499,7 +501,7 @@ int addSugar()
     while (true)
     {
         showSymbolsRow();
-        cout << "*" << setw(32) << "Would you like to add sugar?" << setw(7) << "*" << endl;
+        showSymbolsRowWithMessage("Would you like to add sugar?");
         showSymbolsRow();
         cout << "*" << setw(12) << " Yes " << setw(2) << "1" << setw(12) << "No " << setw(2) << "0" << setw(11) << "*" << endl;
         showSymbolsRow();
