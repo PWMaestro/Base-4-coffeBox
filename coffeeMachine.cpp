@@ -155,7 +155,7 @@ void showLogo()
 {
     showRowStars(40);
     showRowStars(40);
-    cout << "*" << setw(30) << "LavAzza coffee machine" << setw(9) << "*" << endl;
+    cout << "*" << setw(27) << "ESPRESSO BIANCCI" << setw(12) << "*" << endl;
     showRowStars(40);
     showRowStars(40);
 }
